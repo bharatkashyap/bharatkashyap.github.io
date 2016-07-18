@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href = https://fonts.googleapis.com/css?family=Pontano+Sans rel = stylesheet type = text/css>
+    <link href = https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy rel = stylesheet type = text/css>
+    <link href = style.css rel = stylesheet type = text/css>
+    <title>Bharat</title>
+  </head>
+<body>
+<div class = centrepiece>
+  <div id = heading>
+    Bharat Kashyap
+  </div>
+  
+  <div id = location>
+    New Delhi/Punjab, India
+  </div>
+  
+  <div id = showpiece>
+    <img src = panval.jpg> <br/>
+    <span id = imagetext>The Trivandrum Rajdhani crossing the Panval Bridge</span>
+  </div>
+  
+  <div id = interests>
+<!--    <ul>
+      <li><a href = http://www.github.com/bharatkashyap target = _blank>Github</a></li>
+      <li>Quizzing</li>
+      <li>Travel</li>
+      <li>Football</li>
+      <li>Languages of India</li>
+    </ul>-->
+    <center>
+    <table>
+      <tbody>
+        <tr>
+          <td id = github><a href = http://www.github.com/bharatkashyap target = _blank>Github</a></td>
+          <td id = quiz><a href = https://bharatkashyap.github.io/quizzes target = _blank>Quizzing</a></td>
+        </tr>
+        <tr>
+          <td onClick = describe(this) id = travel><span class = link>Travel</span></td>
+          <td onClick = describe(this) id = misc><span class = link>Misc</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </center>
+  </div>
+  
+  <div id = subtext>
+    <li id = medium><a href = http://www.medium.com/@bharatkashyap target = _blank>Medium</a></li> &bullet;
+    <li id = twitter><a href = http://www.twitter/com/bharattttttt target = _blank>Twitter</a></li> <br/>
+    <li id = contact>bharatkashyap[at]outlook[dot]com</li> <br/> <li id = work onClick = fadeInterests()><span class = link>Work and interests</span></li>
+  </div>
+  
+</div>
+<script>
+  function fadeInterests()
+    {
+      var home = document.getElementById('showpiece');
+      var work = document.getElementById('interests');
+      home.style.display = 'none';
+      work.style.display = 'block';
+    }
+  function describe(e)
+    {
+      var id = e.id;
+      switch(id)
+        {
+          case "travel":
+            e.innerHTML = "Extremely interested in travel  <br/> more so in India, <br/>especially <a href = https://goo.gl/photos/W7QadMxLVPw2FtfL8 target = _blank>by rail</a>."
+            break;
+          case "misc":
+            e.innerHTML = "European football, <br/>Governance &amp; Administration, <br/>Music, Comedy"
+            break;
+        }
+    }
+</script>
+</body>
+</html>
