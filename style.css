@@ -1,6 +1,7 @@
+
 .centrepiece
  {
-   margin : 6% 0;
+   margin : 4% 0;
    text-align : center;
  }
  
@@ -90,7 +91,7 @@ img
   
 a
   {
-    text-decoration : none;
+    text-decoration : underline;
     color : inherit;
   }
   
