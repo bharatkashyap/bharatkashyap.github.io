@@ -4,7 +4,6 @@
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/29b43eb7cb.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Cinzel|Crimson+Text|Halant|Mukta+Mahee|Rasa|Hind+Siliguri|Anonymous+Pro" rel="stylesheet">
     <title>Bharat Kashyap</title>
@@ -12,7 +11,7 @@
 <body>
 <div class="container-fluid">
   <div class="row justify-content-center main">
-    <div class="col-sm-4 image">
+    <div class="col-sm-4 align-self-center image">
       <div class="row justify-content-center">
         <div class="col-auto">
           <img src="me.jpg" class="border border-dark rounded-circle" alt="">
@@ -59,12 +58,12 @@
       </div>
     </div>
   </div>
-  <div class="footnote">
-    <div class="col-auto text-muted">
-    If you are a native speaker of a regional Indian language, teach me how to write my name!
+    <div class="footnote">
+      <div class="text-muted">
+        If you are a native speaker of a regional Indian language, teach me how to write my name!
+      </div>
     </div>
   </div>
-</div>
 </body>
 
 <script type="text/javascript">
@@ -76,7 +75,6 @@ function reqListener () {
   scripts = namedata.Scripts;
 
   length = scripts.length;
-
   var i = Math.floor(Math.random() * length);
 
   document.getElementById("heading").innerHTML = "<abbr title>" + names[i] + "</abbr>";
@@ -109,6 +107,7 @@ fadeElemsIn();
 }
 
 window.onload = nameRandomiser();
+
 
 </script>
 </html>

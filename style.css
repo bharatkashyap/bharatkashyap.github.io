@@ -1,3 +1,7 @@
+html {
+  position: relative;
+}
+
 html, body, .container-fluid {
   height: 100%;
 }
@@ -77,7 +81,7 @@ ul li
 }
 
 
-.container-fluid
+body, .container-fluid
 {
   overflow-x: hidden;
 }
@@ -88,8 +92,10 @@ abbr {
 
 .footnote {
   position: fixed;
+  right: 0;
+  left: 0;
+  width: 100vw;
   bottom: 0;
-  left: 26vw;
   margin-top: 1vh;
   text-align: center;
   font-size: 1em;
@@ -132,8 +138,8 @@ a:hover
   }
 
   .footnote {
-    font-size: 0.3em;
-    left: 5vw;
+    position: inherit;
+    font-size: 0.4em;
   }
 }
 
