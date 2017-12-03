@@ -1,18 +1,146 @@
+html, body, .container-fluid {
+  height: 100%;
+}
 
-.centrepiece
- {
-   margin : 4% 0;
-   text-align : center;
- }
- 
-#heading
+.vdivide {
+  opacity: 0;
+  transition: 1s opacity;
+}
+
+.vdivide:after {
+  background: #E0E0E0;
+  width: 2px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:5vh;
+  bottom: 0;
+  right: 0;
+  min-height: 0px;
+}
+
+.text-content
+{
+  position: relative;
+  top: 8vh;
+  left: 2vh;
+}
+
+.heading
   {
-    font-family : 'Pontano Sans', sans-serif;
-    font-size : 1.8em;
-    color : rgba(74,74,74,1);
-    margin-bottom : 1%;
+    font-size: 4vh;
+    /* font-family: 'Cinzel', sans-serif; */
+    /* font-family: 'Halant', sans-serif; */
+    opacity: 0;
+    transition: 1s opacity;
   }
-  
+
+.description
+{
+  font-family: 'Crimson Text', sans-serif;
+  opacity: 0;
+  transition: 1s opacity;
+}
+
+.d-s
+{
+  font-size: 2.9vh;
+}
+
+.d-sr
+{
+  font-size: 2.4vh;
+}
+
+.d-l
+{
+  position: relative;
+  left: 5vh;
+}
+
+ul li
+{
+  line-height: 1.5em;
+}
+
+.joke
+{
+  margin-top: 2vh;
+  opacity: 0;
+  transition: 1s opacity;
+}
+
+
+.main
+{
+  margin-top: 15vh;
+}
+
+
+.container-fluid
+{
+  overflow-x: hidden;
+}
+
+abbr {
+  text-decoration: none!important;
+}
+
+.footnote {
+  position: fixed;
+  bottom: 0;
+  left: 26vw;
+  margin-top: 1vh;
+  text-align: center;
+  font-size: 1em;
+  font-family: 'Anonymous Pro', serif;
+  opacity: 0;
+  transition: 2s opacity;
+}
+
+.image {
+  opacity: 0;
+  transition: 1s opacity;
+}
+
+a {
+  text-decoration-line: underline;
+  color: inherit;
+}
+
+a:hover
+  {
+    text-decoration-line: underline;
+    -webkit-transition : all ease-in 0.2s;
+    color : rgba(75,75,75,0.6);
+  }
+
+
+@media (max-width: 575px)
+{
+  .main {
+    margin-top: 2vh;
+  }
+
+  .text-content {
+    top: 3.5vh;
+  }
+
+  .image {
+    padding-bottom: 2vh;
+    border-bottom: 1px solid #E0E0E0;
+  }
+
+  .footnote {
+    font-size: 0.3em;
+    left: 5vw;
+  }
+}
+
+.visible {
+  opacity: 1;
+}
+
 #location
   {
     font-family : 'Sorts Mill Goudy', serif;
@@ -20,7 +148,7 @@
     color : #434343;
     margin-bottom : 0.2%;
   }
-  
+
 #interests
   {
     margin : 2% 0;
@@ -56,52 +184,46 @@
   {
     border-bottom : none;
   }
-  
+
 #showpiece
   {
     margin : 2% 0;
   }
-  
+
 img
-  
+
   {
-    height : 50%;
-    width : 50%;
+    margin-top: 8vh;
+    /* position: relative;
+    transform: translateX(13vh); */ /* Before placing image and social icons in seperate rows */
+    margin-bottom: 2vh;
+    height : 28vh;
+    width : 28vh;
   }
-  
+
+
 #imagetext
   {
     font-family : 'Sorts Mill Goudy', serif;
     font-size : 0.8em;
     color : rgba(75,75,75,0.6);
   }
-  
+
 #subtext
   {
     font-family : 'Sorts Mill Goudy', serif;
     font-size : 1em;
     color : #434343
   }
-  
+
 #subtext li
   {
     display : inline;
     list-style-type : none;
   }
-  
-a
-  {
-    text-decoration : underline;
-    color : inherit;
-  }
-  
+
+
 li:hover, td:hover
   {
     cursor : default;
-  }
-  
-a:hover, span.link:hover
-  {
-    -webkit-transition : ease-in 0.2s;
-    color : rgba(75,75,75,0.6);
   }

@@ -1,72 +1,114 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <link href = https://fonts.googleapis.com/css?family=Pontano+Sans rel = stylesheet type = text/css>
-    <link href = https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy rel = stylesheet type = text/css>
-    <link href = style.css rel = stylesheet type = text/css>
-    <title>Bharat</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/29b43eb7cb.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Crimson+Text|Halant|Mukta+Mahee|Rasa|Hind+Siliguri|Anonymous+Pro" rel="stylesheet">
+    <title>Bharat Kashyap</title>
   </head>
 <body>
-<div class = centrepiece>
-  <div id = heading>
-    Bharat Kashyap
+<div class="container-fluid">
+  <div class="row justify-content-center main">
+    <div class="col-sm-4 image">
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <img src="me.jpg" class="border border-dark rounded-circle" alt="">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-auto"><a href="https://www.facebook.com/bharattttttt" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+        <div class="col-auto"><a href="https://www.twitter.com/bharattttttt" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
+        <div class="col-auto"><a href="https://www.medium.com/@bharatkashyap" target="_blank"><i class="fa fa-medium" aria-hidden="true"></i></a></div>
+        <div class="col-auto"><a href="https://www.instagram.com/bharatkashyap" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+      </div>
+    </div>
+
+    <div class="col-auto vdivide">
+    </div>
+
+    <div class="col-sm-4 align-self-start">
+      <div class="row justify-content-center text-content">
+        <div class="col">
+          <!-- <p class="heading">Bharat Kashyap</p> -->
+          <p id="heading" class="heading"></p>
+        </div>
+        <div class="w-100"></div>
+        <div class="col">
+          <p class="description d-s">I am an engineering student, currently residing in Patiala, Punjab, India.</p>
+        </div>
+        <div class="w-100"></div>
+        <div class="col">
+          <p class="description d-sr">I like : </p>
+          <ul class="description d-sr d-l list-unstyled">
+            <li><i class="fa fa-github fa-fw" aria-hidden="true"></i>&nbsp;<a href="https://github.com/bharatkashyap" target="_blank">Computer Science and engineering</a></li>
+            <li><i class="fa fa-futbol-o fa-fw" aria-hidden="true"></i>&nbsp;Football</li>
+            <li><i class="fa fa-hand-stop-o fa-fw" aria-hidden="true"></i>&nbsp;<a href="https://bharatkashyap.github.io/quizzing" target="_blank">Quizzing</a></li>
+            <li><i class="fa fa-train fa-fw" aria-hidden="true"></i>&nbsp;Travel</li>
+            <li><i class="fa fa-asterisk fa-fw" aria-hidden="true"></i>&nbsp;Brutal Honesty</li>
+            <li><i class="fa fa-asterisk fa-fw" aria-hidden="true"></i>&nbsp;Jokes</li>
+          </ul>
+        </div>
+        <div class="w-100"></div>
+          <div class="col">
+            <p class="description d-sr joke"><span class="align-top">**</span><a href="http://bharatkashyap.github.io/BK.pdf" target="_blank">This</a> is a document that will help me get
+    employed in positions I might otherwise be underqualified for. <br/><span class="text-muted">Last updated 3/12/2017</span></p>
+          </div>
+      </div>
+    </div>
   </div>
-  
-  <div id = location>
-    New Delhi/Punjab, India
+  <div class="footnote">
+    <div class="col-auto text-muted">
+    If you are a native speaker of a regional Indian language, teach me how to write my name!
+    </div>
   </div>
-  
-  <div id = showpiece>
-    <img src = panval.jpg> <br/>
-    <span id = imagetext>The Trivandrum Rajdhani crossing the Panvel Bridge.</span>
-    <!-- Picture credit to www.railpicture.net -->
-  </div>
-  
-  <div id = interests>
-    <center>
-    <table>
-      <tbody>
-        <tr>
-          <td id = github><a href = http://www.github.com/bharatkashyap target = _blank>Github</a></td>
-          <td id = quiz><a href = https://bharatkashyap.github.io/quizzes target = _blank>Quizzing</a></td>
-        </tr>
-        <tr>
-          <td onClick = describe(this) id = travel><span class = link>Travel</span></td>
-          <td onClick = describe(this) id = misc><span class = link>Misc</span></td>
-        </tr>
-      </tbody>
-    </table>
-    </center>
-  </div>
-  
-  <div id = subtext>
-    <li id = medium><a href = http://www.medium.com/@bharatkashyap target = _blank>Medium</a></li> &nbsp; &nbsp; &bullet; &nbsp; &nbsp;
-    <li id = twitter><a href = http://www.twitter.com/bharattttttt target = _blank>Twitter</a></li> <br/>
-    <li id = contact>bharatkashyap[at]outlook[dot]com</li> <br/> <li id = work onClick = fadeInterests()><span class = link>About</span></li>
-  </div>  
 </div>
-<script>
-  function fadeInterests()
-    {
-      var home = document.getElementById('showpiece');
-      var work = document.getElementById('interests');
-      home.style.display = 'none';
-      work.style.display = 'block';
-    }
-  function describe(e)
-    {
-      var id = e.id;
-      switch(id)
-        {
-          case "travel":
-            e.innerHTML = "Through India, <br/><a href = https://goo.gl/photos/W7QadMxLVPw2FtfL8 target = _blank>by rail</a>."
-            break;
-          case "misc":
-            e.innerHTML = "<em><a href = http://www.wmtc.org.in target = _blank>Shramdaan</a></em>"
-            break;
-        }
-    }
-</script>
 </body>
+
+<script type="text/javascript">
+var namedata;
+function reqListener () {
+  namedata = JSON.parse(this.responseText);
+  fonts = namedata.Fonts;
+  names = namedata.Names;
+  scripts = namedata.Scripts;
+
+  length = scripts.length;
+
+  var i = Math.floor(Math.random() * length);
+
+  document.getElementById("heading").innerHTML = "<abbr title>" + names[i] + "</abbr>";
+  document.getElementById("heading").style.fontFamily = fonts[i];
+  document.getElementsByTagName("abbr")[0].setAttribute("title", scripts[i]);
+}
+
+function fadeElemsIn(){
+  var elements = [], i=1;
+  elements.push(document.getElementsByClassName("image")[0]);
+  elements.push(document.getElementsByClassName("vdivide")[0]);
+  elements.push(document.getElementsByClassName("heading")[0]);
+  elements.push(document.getElementsByClassName("d-s")[0]);
+  elements.push(document.getElementsByClassName("d-sr")[0]);
+  elements.push(document.getElementsByClassName("d-l")[0]);
+  elements.push(document.getElementsByClassName("joke")[0]);
+  elements.push(document.getElementsByClassName("footnote")[0]);
+  Array.prototype.forEach.call(elements, function(elem) {
+      setTimeout(function(){ elem.classList.add("visible") }, 700*i)
+      i++;
+      })
+  }
+
+function nameRandomiser(){
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "namedata.json");
+oReq.send();
+fadeElemsIn();
+}
+
+window.onload = nameRandomiser();
+
+</script>
 </html>
