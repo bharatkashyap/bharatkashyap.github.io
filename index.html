@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://use.fontawesome.com/29b43eb7cb.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Cinzel|Crimson+Text|Halant|Mukta+Mahee|Rasa|Hind+Siliguri|Anonymous+Pro" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Crimson+Text|Halant|Mukta+Mahee|Rasa|Hind+Siliguri|Anonymous+Pro|Karla" rel="stylesheet">
     <title>Bharat Kashyap</title>
   </head>
 <body>
@@ -14,7 +15,7 @@
     <div class="col-sm-4 align-self-center image">
       <div class="row justify-content-center">
         <div class="col-auto">
-          <img src="me.jpg" class="border border-dark rounded-circle" alt="">
+          <img src="me.jpg" class="me border border-dark rounded-circle" alt="">
         </div>
       </div>
       <div class="row justify-content-center">
@@ -28,10 +29,9 @@
     <div class="col-auto vdivide">
     </div>
 
-    <div class="col-sm-4 align-self-start">
+    <div class="descr col-sm-4 align-self-start">
       <div class="row justify-content-center text-content">
         <div class="col">
-          <!-- <p class="heading">Bharat Kashyap</p> -->
           <p id="heading" class="heading"></p>
         </div>
         <div class="w-100"></div>
@@ -41,28 +41,25 @@
         <div class="w-100"></div>
         <div class="col">
           <p class="description d-sr">I like : </p>
-          <ul class="description d-sr d-l list-unstyled">
-            <li><i class="fa fa-github fa-fw" aria-hidden="true"></i>&nbsp;<a href="https://github.com/bharatkashyap" target="_blank">Computer Science and engineering</a></li>
-            <li><i class="fa fa-futbol-o fa-fw" aria-hidden="true"></i>&nbsp;Football</li>
-            <li><i class="fa fa-hand-stop-o fa-fw" aria-hidden="true"></i>&nbsp;<a href="https://bharatkashyap.github.io/quizzes/" target="_blank">Quizzing</a></li>
-            <li><i class="fa fa-asterisk fa-fw" aria-hidden="true"></i>&nbsp;Honesty</li>
-            <li><i class="fa fa-train fa-fw" aria-hidden="true"></i>&nbsp;<a href="https://photos.google.com/share/AF1QipPVj1JMb0Z6MxYarJNZtKADuoX8pl6-rRtEIUFJyj02lXhTLiNBGNA2Le0dwri9wA?key=dl9fdVJtRG1ybG50QmZYRWxsVE13SFJvREM1aEZB" target="_blank">Travel</a></li>
-            <li><i class="fa fa-asterisk fa-fw" aria-hidden="true"></i>&nbsp;Jokes</li>
+          <ul id="card-list" class="description d-sr d-l list-unstyled">
+            <div class="row no-gutters justify-content-center">
+              <div class="col-11">
+            <li v-for="card in cards" v-if="selected == card.id" v-bind:key="card.id"><div class="card"><img class="card-img-top" v-bind:src="card.img" alt="Card image cap" /><div class="card-body" v-on:click="follow(card.link)"><h5 class="card-title">{{ card.title }}</h5><p class="card-text">{{ card.text }}</p></div></div></li>
+              </div>
+              <div class="col align-self-center">
+                <div class="arrow" v-on:click="next()"> <span>></span> </div>
+              </div>
+            </div>
           </ul>
         </div>
         <div class="w-100"></div>
           <div class="col">
             <p class="description d-sr joke"><span class="align-top"></span><a href="http://bharatkashyap.github.io/BK.pdf" target="_blank">This</a> is my resumé.
-    <br/><span class="text-muted">Last updated 29/1/2018</span></p>
+    <br/><span class="text-muted">Last updated 31/3/2018</span></p>
           </div>
       </div>
     </div>
   </div>
-    <div class="footnote">
-      <div class="text-muted">
-        If you are a native speaker of a regional Indian language, teach me how to write my name!
-      </div>
-    </div>
   </div>
 </body>
 
@@ -91,7 +88,6 @@ function fadeElemsIn(){
   elements.push(document.getElementsByClassName("d-sr")[0]);
   elements.push(document.getElementsByClassName("d-l")[0]);
   elements.push(document.getElementsByClassName("joke")[0]);
-  elements.push(document.getElementsByClassName("footnote")[0]);
   Array.prototype.forEach.call(elements, function(elem) {
       setTimeout(function(){ elem.classList.add("visible") }, 700*i)
       i++;
@@ -106,6 +102,28 @@ oReq.send();
 fadeElemsIn();
 }
 
+
+
+var cards = new Vue({
+  el: '#card-list',
+  data: {
+    selected: 0,
+    cards: [
+      { id: 0, img: "cseng.svg", title: "Computer Science and engineering", text: "Using technology (Javascript, mostly) to solve everyday problems.", link: "https://bharatkashyap.github.io/work.html" },
+      { id: 1, img: "quiz.svg", title: "Quizzing", text: "Knowing things.", link: "https://bharatkashyap.github.io/quizzes"},
+      { id: 2, img: "writing.jpg", title: "Writing", text: "Documenting stories of resolute ties to the hometown.", link: "https://linearcombinations.wordpress.com"},
+      { id: 3, img: "travel.jpg", title: "Trains", text: "Travelling through the country via the Indian Railway.", link: "https://photos.google.com/share/AF1QipPVj1JMb0Z6MxYarJNZtKADuoX8pl6-rRtEIUFJyj02lXhTLiNBGNA2Le0dwri9wA?key=dl9fdVJtRG1ybG50QmZYRWxsVE13SFJvREM1aEZB"}
+    ]
+  },
+  methods: {
+    next: function() {
+      this.selected=(this.selected+1)%this.cards.length;
+    },
+    follow: function(url) {
+      window.open(url);
+    }
+  }
+})
 window.onload = nameRandomiser();
 
 

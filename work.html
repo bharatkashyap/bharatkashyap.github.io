@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://use.fontawesome.com/29b43eb7cb.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Crimson+Text|Anonymous+Pro|Karla" rel="stylesheet">
+    <title>Bharat Kashyap</title>
+  </head>
+<body>
+<div class="container-fluid">
+      <div class="row justify-content-center work-heading">
+          <h3><i class="fa fa-github fa-fw" aria-hidden="true"></i> <a href="https://github.com/bharatkashyap" target="_blank">Work</a> </h3>
+      </div>
+      <div class="row justify-content-center text-content">
+        <div class="col-sm-5">
+          <ul class="card-list" class="description d-sr d-l list-unstyled">
+            <li v-for="card in cards" v-show="card.id%2==0" v-bind:key="card.id"><div class="card"><img class="card-img-top" v-bind:src="card.img" alt="Card image cap" /><div class="card-body" v-on:click="follow(card.link)"><h5 class="card-title">{{ card.title }}</h5><div class="card-subtitle text-muted">{{ card.stack }} <br/> {{card.year}}</div><p class="card-text">{{ card.text }}</p></div></div></li>
+          </ul>
+        </div>
+        <div class="col-sm-5">
+          <ul class="card-list" class="description d-sr d-l list-unstyled">
+            <li v-for="card in cards" v-show="card.id%2!=0" v-bind:key="card.id"><div class="card"><img class="card-img-top" v-bind:src="card.img" alt="Card image cap" /><div class="card-body" v-on:click="follow(card.link)"><h5 class="card-title">{{ card.title }}</h5><div class="card-subtitle text-muted">{{ card.stack }} <br/> {{card.year}} </div><p class="card-text">{{ card.text }}</p></div></div></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</body>
+
+<script type="text/javascript">
+
+var cards = new Vue({
+  el: '.text-content',
+  data: {
+    cards: [
+      { id: 0, img: "qg.svg", title: "Quizgen", text: "A novel way to create and present quizzes - eliminating the need to copy and paste questions from shared documents online to powerpoint presentations that are cumbersome, highly likely to break at some point, and harder to share.", stack: "Javascript", year: "2015-present", link: "https://quizgen-final.firebaseapp.com" },
+      { id: 1, img: "pc.svg", title: "Parkcore", text: "In late 2016, I was selected to attend MHacks 8 in Michigan, and travelled to Detroit on a grant from the college. My team and I built an app to crowdsource the process of finding vacant parking spots, a problem that had especially been ailing the city of Detroit at the time. We placed in the top five apps in our category.", stack: "Node.js, Google Maps API", year: "2016", link: "https://devpost.com/software/parkcore"},
+      { id: 2, img: "fm.svg", title: "FatehMetrics", text: "In 2017, I joined Team Fateh - the college's Formula SAE team - and created an internal dashboard to view and record engine data of the car being built for Formula Student Italy 2017.", year: "2017", stack: "MEAN, Charts.js", link: "https://fatehmetrics.herokuapp.com"},
+      { id: 3, img: "tr.svg", title: "Taproute", text: "In the summer of 2017, I worked with Taproute (now Uni) - in Bengaluru - and helped in creating a few elements of the rider app, untangle a few webs in the back-end architecture, and made the landing page. Taproute eventually won the BMRC and WRI's STAMP Accelerator and went through a brief pilot in late 2017 - before rebranding as Uni.", stack: "Ionic v3.0", year: "2017", link: "http://getunipass.com"}
+    ]
+  },
+  methods: {
+    follow: function(url) {
+      window.open(url);
+    }
+  }
+})
+
+
+
+</script>
+</html>

@@ -44,6 +44,7 @@ html, body, .container-fluid {
   font-family: 'Crimson Text', sans-serif;
   opacity: 0;
   transition: 1s opacity;
+  margin-right: 1%;
 }
 
 .d-s
@@ -59,7 +60,7 @@ html, body, .container-fluid {
 .d-l
 {
   position: relative;
-  left: 5vh;
+  left: 0;
 }
 
 ul li
@@ -77,7 +78,7 @@ ul li
 
 .main
 {
-  margin-top: 15vh;
+  margin-top: 10vh;
 }
 
 
@@ -88,15 +89,6 @@ body, .container-fluid
 
 abbr {
   text-decoration: none!important;
-}
-
-.footnote {
-  margin-top: 7.5%;
-  text-align: center;
-  font-size: 1em;
-  font-family: 'Anonymous Pro', serif;
-  opacity: 0;
-  transition: 2s opacity;
 }
 
 .image {
@@ -130,11 +122,6 @@ a:hover
   .image {
     padding-bottom: 2vh;
     border-bottom: 1px solid #E0E0E0;
-  }
-
-  .footnote {
-    position: inherit;
-    font-size: 0.4em;
   }
 }
 
@@ -191,10 +178,10 @@ a:hover
     margin : 2% 0;
   }
 
-img
+.me
 
   {
-    margin-top: 8vh;
+    margin-top: 3vh;
     /* position: relative;
     transform: translateX(13vh); */ /* Before placing image and social icons in seperate rows */
     margin-bottom: 2vh;
@@ -223,8 +210,142 @@ img
     list-style-type : none;
   }
 
+.descr
+{
+  padding: 0;
+}
+
+
 
 li:hover, td:hover
   {
     cursor : default;
   }
+
+.card
+{
+  width: 95%;
+}
+
+.card-img-top
+{
+  height: 34vh;
+}
+
+.card-body
+{
+  padding: 0;
+  padding-left: 1rem;
+  color: rgba(255,255,255,0.8);
+  background-color: rgba(0,0,0,0.8);
+}
+
+.card-title
+{
+  position: relative;
+  top: 1vh;
+  font-size: 0.9em;
+  font-family: 'Karla', sans-serif;
+  transition: 0.1s all ease-in;
+}
+
+.card-text
+{
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  color: white;
+  background-color: rgba(0,0,0,0.65);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: .2s ease-in;
+}
+
+.card-title:hover
+{
+  cursor: pointer;
+  color: white;
+}
+
+.card:hover
+{
+  cursor: pointer;
+}
+
+.card-body:hover .card-text
+{
+  opacity: 1;
+}
+
+.arrow
+{
+  margin-left: -0.5rem;
+  font-size: 1.7rem;
+  font-family: 'Karla', 'Helvetica Neue', sans-serif;
+  color: rgba(0,0,0,0.5);
+  transition: all 0.2s ease-in-out;
+}
+
+.arrow span
+{
+  transition: all 0.1s ease-in-out;
+}
+
+.arrow span:hover
+{
+  cursor:pointer;
+  font-size: 1.9rem;
+  color: rgba(0,0,0,0.7);
+}
+
+/* Work styles */
+.card-list {
+  margin: 0;
+  padding: 0;
+}
+
+.card-list li
+{
+  list-style-type: none;
+  margin-bottom: 1em;
+}
+
+.card-list .card
+{
+}
+
+.card-list .card-body
+{
+  padding: 0.6em 0.8em;
+}
+
+.card-list .card-title
+{
+  font-size: 1.1em;
+}
+
+.card-list .card-subtitle
+{
+  font-variant: small-caps;
+}
+
+.work-heading
+{
+  margin-top: 1em;
+  font-family: 'Karla', sans-serif;
+  font-variant: small-caps;
+  color: rgba(0,0,0,0.7);
+  font-size: 1.5em;
+  margin: 2% 2% -3% 2%;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.work-heading a {
+  text-decoration-line: none;
+}
