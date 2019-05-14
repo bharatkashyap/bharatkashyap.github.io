@@ -1,0 +1,30 @@
+#heading-text {
+    width: fit-content;
+    font-family: 'Crimson Text', serif;
+}
+#post-heading, #post-date {
+    font-family: 'Crimson Text', serif;
+}
+
+#post-sub-head {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+}
+
+#post-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+}
+
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}

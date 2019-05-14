@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Delhi</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css"> 
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Cormorant+Garamond" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="heading-container d-flex flex-column align-items-center">
+                <div id="heading-text" class="fade-in text-center">
+                    <span class="display-3 font-heading text-center">The persistence of vision</span>
+                </div>
+                <hr class="v-divide w-100"></div></hr>
+            </div>
+            <div id="posts-container" class="main-content d-flex flex-column">
+                <div class="post fade-in d-flex flex-column align-items-center my-3 fadeIn" v-for="(post, index) in posts">
+                    <div class="post-image" v-for="(pic, index) in post.Pics" :key="index">
+                        <div class="image my-1"><img :src=pic.url></img></div>
+                    </div>
+                    <div id="post-heading" class="mt-2 align-items-start display-4">{{post.Heading}}</div>
+                    <div id="post-date" class="mt-2 align-items-start text-muted font-size-sm">{{sanitiseDate(post.Date)}}</div>
+                    <div id="post-sub-head" class="mt-1">{{post.Description}}</div>
+                    <div id="post-text" class="d-flex flex-column w-75 mt-3" v-html=post.Notes></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+   
+        /** Post Schema 
+        Heading: string
+        Description: string 
+        Pics: array
+            pic in Pics: url string
+        Notes: string
+        **/
+       var posts = new Vue({
+           el: "#posts-container",
+           data: {
+               fetchedPosts : [],
+               dateOptions: {
+                   weekday: "long",
+                   month: "long",
+                   day: "numeric",
+                   year: "numeric"
+               }
+           },
+           computed : {
+            posts () {
+               return this.fetchedPosts.map(record => record.fields)
+            }
+           },
+           methods: {
+               sanitiseDate(date) {
+                   let dateObject = new Date(date);
+                   return dateObject.toLocaleDateString('en-IN', this.dateOptions);
+               }
+           },
+           mounted() {
+            fetch("https://api.airtable.com/v0/appvFZdnU9Q1R8Nao/Places", {
+                method: "GET",
+                headers: {
+                    "Authorization": "Bearer keygoa21KKU4SNkWW"
+                }
+                }).then(response => { return response.json() })
+                    .then(res => { 
+                        this.fetchedPosts = res.records;                        
+                    })
+                }
+            })
+    </script>
+</html>
