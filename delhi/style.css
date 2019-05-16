@@ -1,13 +1,21 @@
 #heading-text {
     width: fit-content;
-    font-family: 'Crimson Text', serif;
 }
+
+#subheading-text {
+    text-transform: capitalize;
+}
+
 #post-heading, #post-date {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Work Sans', sans-serif;
+}
+
+#post-image img {
+    max-width: 70vw;
 }
 
 #post-sub-head {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 1.2rem;
 }
 
@@ -16,15 +24,39 @@
     font-size: 1.5rem;
 }
 
-
+.flex-equal {
+    flex-grow: 1;
+    flex-basis: 0;
+}
 
 @keyframes fadeIn {
     0% { opacity: 0; }
     50% { opacity: 1; }
 }
+.post.pre-load {
+    opacity: 0;
+}
+
 
 .fade-in {
     animation-name: fadeIn;
     animation-duration: 3s;
     animation-iteration-count: 1;
+}
+
+.font-heading {
+    font-family: 'Crimson Text', serif;
+}
+
+.font-subheading {
+    font-family: 'Work Sans', sans-serif;
+}
+
+hr.v-divide-double {
+    border-top-style: double;
+}
+
+hr.v-divide-strong {
+    border-top-width: 3px;
+    border-top-color: rgba(0,0,0,0.6);
 }

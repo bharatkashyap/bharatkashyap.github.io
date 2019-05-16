@@ -4,31 +4,36 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css"> 
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Cormorant+Garamond" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Cormorant+Garamond|Work+Sans&font-display=optional" rel="stylesheet">
     </head>
     <body>
-        <div class="container">
-            <div class="heading-container d-flex flex-column align-items-center">
-                <div id="heading-text" class="fade-in text-center">
-                    <span class="display-3 font-heading text-center">The persistence of vision</span>
+        <div class="container-fluid">
+            <div id="heading-container" class="d-flex flex-column align-items-center">
+                <div id="heading-text" class="fade-in text-center mt-4 d-flex flex-column">
+                    <span class="display-3 font-heading">Persistence of vision</span>
+                    <span id="subheading-text" class="font-size-xl font-subheading">A visual retelling of the procession of generations</span>
                 </div>
-                <hr class="v-divide w-100"></div></hr>
+                <hr class="v-divide w-100"></hr>
             </div>
-            <div id="posts-container" class="main-content d-flex flex-column">
-                <div class="post fade-in d-flex flex-column align-items-center my-3 fadeIn" v-for="(post, index) in posts">
-                    <div class="post-image" v-for="(pic, index) in post.Pics" :key="index">
-                        <div class="image my-1"><img :src=pic.url></img></div>
+            <div id="posts-container" class="main-content">
+                <div class="post pre-load d-flex flex-column" v-for="(post, index) in posts" :id="index">
+                    <div class="d-flex flex-lg-row flex-column-reverse my-3 w-100 justify-content-between fadeIn">
+                        <div id="post-image" class="flex-equal mx-1 mt-1" v-for="(pic, index) in post.Pics" :key="index">
+                            <div class="image text-center"><img :src=pic.url></img></div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center flex-equal">
+                            <div id="post-heading" class="mt-2 align-items-start display-4 text-center">{{post.Heading}}</div>
+                            <div id="post-date" class="mt-2 align-items-start text-muted font-size-sm">{{sanitiseDate(post.Date)}}</div>
+                            <div id="post-sub-head" class="mt-1 text-secondary text-center">{{post.Description}}</div>
+                            <div id="post-text" class="d-flex flex-column w-75 mt-3 text-justify" v-html=post.Notes></div>
+                        </div>
                     </div>
-                    <div id="post-heading" class="mt-2 align-items-start display-4">{{post.Heading}}</div>
-                    <div id="post-date" class="mt-2 align-items-start text-muted font-size-sm">{{sanitiseDate(post.Date)}}</div>
-                    <div id="post-sub-head" class="mt-1">{{post.Description}}</div>
-                    <div id="post-text" class="d-flex flex-column w-75 mt-3" v-html=post.Notes></div>
+                    <hr class="v-divide w-25 mb-5 v-divide-double v-divide-strong"></hr>
                 </div>
             </div>
         </div>
     </body>
     <script type="text/javascript">
-   
         /** Post Schema 
         Heading: string
         Description: string 
@@ -36,7 +41,7 @@
             pic in Pics: url string
         Notes: string
         **/
-       var posts = new Vue({
+        var posts = new Vue({
            el: "#posts-container",
            data: {
                fetchedPosts : [],
@@ -48,27 +53,86 @@
                }
            },
            computed : {
-            posts () {
-               return this.fetchedPosts.map(record => record.fields)
-            }
+                posts () {
+                return this.fetchedPosts.map(record => record.fields)
+                },
+                postsDOMArray () {
+                    return [...document.getElementsByClassName("post")];
+                },
+                postOffsetHeights() {
+                    return this.postsDOMArray.map(post => this.offsetTop(post));
+                },
+                postHeights() {
+                return this.postsDOMArray.map(post => this.outerHeight(post));  
+                },
+                viewportHeight() {
+                    return screen.availHeight;
+                }
            },
            methods: {
                sanitiseDate(date) {
                    let dateObject = new Date(date);
                    return dateObject.toLocaleDateString('en-IN', this.dateOptions);
-               }
+               },
+               offsetTop(el) {
+                let offset = el.offsetTop;
+                let style = window.getComputedStyle(el);
+                offset += parseInt(style.marginTop) + parseInt(style.marginBottom);
+                return offset;
+                },
+                outerHeight(el) {
+                    let height = el.offsetHeight;
+                    let style = getComputedStyle(el);
+                    height += parseInt(style.marginTop) + parseInt(style.marginBottom);
+                    return height;
+                },
+                fadeElementsIn(scrollY) {
+                    let percentagesInView = [];
+                    for(let i=0; i<this.postsDOMArray.length; i++) {
+                        let fraction = (this.viewportHeight - (this.postOffsetHeights[i] - scrollY))/this.postHeights[i];
+                        let percentage = fraction * 100;
+                        if(this.elementVisibleInViewport(percentage) == true) this.fadeElementIn(i);                      
+                    }
+                },
+                elementVisibleInViewport(percentage) {
+                    if(percentage > 10 && percentage < 175) return true;
+                    return false;
+                },
+                fadeElementIn(index) {
+                    let post = document.getElementById(index);
+                    post.classList.add("fade-in");
+                    post.classList.remove("pre-load");
+                },
+                handleScroll(event) {
+                   //console.log(this.viewportHeight);
+                   //console.log(this.postHeights);
+                   //console.log(this.postOffsetHeights);
+                   //console.log(window.scrollY);
+                   this.fadeElementsIn(window.scrollY);                  
+               },
            },
-           mounted() {
-            fetch("https://api.airtable.com/v0/appvFZdnU9Q1R8Nao/Places", {
-                method: "GET",
-                headers: {
-                    "Authorization": "Bearer keygoa21KKU4SNkWW"
-                }
-                }).then(response => { return response.json() })
+            mounted() {
+                fetch("https://api.airtable.com/v0/appvFZdnU9Q1R8Nao/Places?sort%5B0%5D%5Bfield%5D=Date&sort%5B0%5D%5Bdirection%5D=desc", {
+                    method: "GET",
+                    headers: {
+                        "Authorization": "Bearer keygoa21KKU4SNkWW"
+                    }
+                    }).then(response => { return response.json() })
                     .then(res => { 
-                        this.fetchedPosts = res.records;                        
+                            this.fetchedPosts = res.records;                        
                     })
-                }
-            })
+                    
+            },
+            created() {
+                window.addEventListener('scroll', this.handleScroll);
+            },
+            updated() {
+                if(document.getElementById(0) !== null) this.fadeElementIn(0);
+            },
+            destroyed() {
+                window.removeEventListener('scroll', this.handleScroll);
+            },
+        })
+            
     </script>
 </html>
