@@ -3,7 +3,7 @@
 }
 
 #subheading-text {
-    text-transform: capitalize;
+    /*text-transform: capitalize; */
 }
 
 #post-heading, #post-date {
@@ -33,6 +33,10 @@
 @keyframes fadeIn {
     0% { opacity: 0; }
     50% { opacity: 1; }
+}
+@keyframes fadeInBorder {
+    0% { border-bottom-color: rgba(0,0,0,0); }
+    100% { border-bottom-color: rgba(0,0,0,0.8); }
 }
 .post.pre-load {
     opacity: 0;

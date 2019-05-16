@@ -7,11 +7,13 @@
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Cormorant+Garamond|Work+Sans|Alegreya+Sans&font-display=optional" rel="stylesheet">
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid" id="main-wrapper">
             <div id="heading-container" class="d-flex flex-column align-items-center">
                 <div id="heading-text" class="fade-in text-center mt-4 d-flex flex-column">
                     <span class="display-3 font-heading">Persistence of vision</span>
-                    <span id="subheading-text" class="font-size-xl font-subheading">A visual retelling of the procession of generations</span>
+                    <div id="subheading-text" class="subheading-menu font-size-xl font-subheading d-flex justify-content-center align-self-center w-75">
+                        <span class="text-center align-self-center">Things I see in this city, that remain</span>
+                    </div>
                 </div>
                 <hr class="v-divide w-100"></hr>
             </div>
@@ -20,7 +22,7 @@
                     <div class="d-flex flex-lg-row flex-column-reverse my-3 w-100 justify-content-between fadeIn">
                         <div id="post-image" class="flex-equal mx-1 mt-1" v-for="(pic, index) in post.Pics" :key="index">
                             <div class="image text-center"><img :src=pic.url></img></div>
-                        </div>
+                        </div>        
                         <div class="d-flex flex-column align-items-center flex-equal">
                             <div id="post-date" class="mt-1 align-items-start text-muted font-size-sm">{{sanitiseDate(post.Date)}}</div>
                             <div id="post-heading" class="mt-1 align-items-start display-4 text-center">{{post.Heading}}</div>
@@ -43,7 +45,7 @@
         Notes: string
         **/
         var posts = new Vue({
-           el: "#posts-container",
+           el: "#main-wrapper",
            data: {
                fetchedPosts : [],
                dateOptions: {
@@ -68,7 +70,7 @@
                 },
                 viewportHeight() {
                     return screen.availHeight;
-                }
+                },
            },
            methods: {
                sanitiseDate(date) {
@@ -110,7 +112,7 @@
                    //console.log(this.postOffsetHeights);
                    //console.log(window.scrollY);
                    this.fadeElementsIn(window.scrollY);                  
-               },
+               }
            },
             mounted() {
                 fetch("https://api.airtable.com/v0/appvFZdnU9Q1R8Nao/Places?sort%5B0%5D%5Bfield%5D=Date&sort%5B0%5D%5Bdirection%5D=desc", {
@@ -120,9 +122,8 @@
                     }
                     }).then(response => { return response.json() })
                     .then(res => { 
-                            this.fetchedPosts = res.records;                        
+                            this.fetchedPosts = res.records;                   
                     })
-                    
             },
             created() {
                 window.addEventListener('scroll', this.handleScroll);
@@ -132,7 +133,7 @@
             },
             destroyed() {
                 window.removeEventListener('scroll', this.handleScroll);
-            },
+            }
         })
             
     </script>
