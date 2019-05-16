@@ -15,8 +15,9 @@
 }
 
 #post-sub-head {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Alegreya Sans', sans-serif;
     font-size: 1.2rem;
+    letter-spacing: 0.02cm;
 }
 
 #post-text {
