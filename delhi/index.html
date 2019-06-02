@@ -21,7 +21,7 @@
                 <div class="post pre-load d-flex flex-column" v-for="(post, index) in posts" :id="index">
                     <div class="d-flex flex-lg-row flex-column-reverse my-3 w-100 justify-content-between fadeIn">
                         <div id="post-image" class="flex-equal mx-1 mt-1" v-for="(pic, index) in post.Pics" :key="index">
-                            <div class="image text-center"><img :src=pic.url></img></div>
+                            <div class="image text-center"><img v-show="imageLoaded" :src=pic.url></img><div class="img-placeholder-div">&nbsp;</div></div>
                         </div>        
                         <div class="d-flex flex-column align-items-center flex-equal">
                             <div id="post-date" class="mt-1 align-items-start text-muted font-size-sm">{{sanitiseDate(post.Date)}}</div>
@@ -53,7 +53,10 @@
                    month: "long",
                    day: "numeric",
                    year: "numeric"
-               }
+               },
+               placeholderHeight: null,
+               placeholderWidth: null,
+               imageLoaded: false
            },
            computed : {
                 posts () {
@@ -61,6 +64,9 @@
                 },
                 postsDOMArray () {
                     return [...document.getElementsByClassName("post")];
+                },
+                picsDOMArray() {
+                    return [...document.getElementsByTagName("IMG")];
                 },
                 postOffsetHeights() {
                     return this.postsDOMArray.map(post => this.offsetTop(post));
@@ -70,7 +76,7 @@
                 },
                 viewportHeight() {
                     return screen.availHeight;
-                },
+                }
            },
            methods: {
                sanitiseDate(date) {
@@ -130,6 +136,19 @@
             },
             updated() {
                 if(document.getElementById(0) !== null) this.fadeElementIn(0);
+                if(!this.imageLoaded) {
+                    let img = this.picsDOMArray[0];
+
+                    var poll = setInterval(function () {
+                        if (img.naturalWidth) {
+                            clearInterval(poll);   
+                            console.log("Image not loaded yet.")
+                            this.placeholderHeight = img.naturalHeight;
+                            this.placeholderWidth = img.naturalWidth;
+                        }
+                    }, 10);
+                    img.onload = () => {console.log("Image finished loading."); this.imageLoaded = true;}
+                }
             },
             destroyed() {
                 window.removeEventListener('scroll', this.handleScroll);

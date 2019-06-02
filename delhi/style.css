@@ -65,3 +65,9 @@ hr.v-divide-strong {
     border-top-width: 3px;
     border-top-color: rgba(0,0,0,0.6);
 }
+
+.img-placeholder-div {
+    display: block;
+    max-width: 70vw!important;
+    background-color: rgba(0,0,0,0.3);
+}
