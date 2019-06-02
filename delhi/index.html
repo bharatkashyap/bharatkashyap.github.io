@@ -21,7 +21,7 @@
                 <div class="post pre-load d-flex flex-column" v-for="(post, index) in posts" :id="index">
                     <div class="d-flex flex-lg-row flex-column-reverse my-3 w-100 justify-content-between fadeIn">
                         <div id="post-image" class="flex-equal mx-1 mt-1" v-for="(pic, index) in post.Pics" :key="index">
-                            <div class="image text-center"><img v-show="imageLoaded" :src=pic.url></img><div class="img-placeholder-div">&nbsp;</div></div>
+                            <!-- <div class="image text-center"><img v-show="imageLoaded" :src=pic.url></img><div class="img-placeholder-div">&nbsp;</div></div> -->
                         </div>        
                         <div class="d-flex flex-column align-items-center flex-equal">
                             <div id="post-date" class="mt-1 align-items-start text-muted font-size-sm">{{sanitiseDate(post.Date)}}</div>
@@ -135,7 +135,7 @@
                 window.addEventListener('scroll', this.handleScroll);
             },
             updated() {
-                if(document.getElementById(0) !== null) this.fadeElementIn(0);
+                /* if(document.getElementById(0) !== null) this.fadeElementIn(0);
                 if(!this.imageLoaded) {
                     let img = this.picsDOMArray[0];
 
@@ -148,7 +148,7 @@
                         }
                     }, 10);
                     img.onload = () => {console.log("Image finished loading."); this.imageLoaded = true;}
-                }
+                } */
             },
             destroyed() {
                 window.removeEventListener('scroll', this.handleScroll);
