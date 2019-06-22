@@ -70,6 +70,12 @@
         Notes: string
         **/
 
+        const config = {
+            backendAPI: "https://badarpur.herokuapp.com",
+            postsEndpoint: "/posts",
+            commentsEndpoint: "/comments"
+        }
+
         var posts = new Vue({
            el: "#main-wrapper",
            data: {
@@ -185,7 +191,7 @@
            },
             mounted() {
                 
-                fetch(`http://localhost:3000/posts`, {
+                fetch(config.backendAPI+config.postsEndpoint, {
                        method: "GET",
                    }).then(response => { return response.json() })
                    .then(res => {
