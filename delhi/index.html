@@ -5,24 +5,36 @@
         <link rel="stylesheet" href="style.css"> 
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Cormorant+Garamond|Work+Sans|Alegreya+Sans&font-display=optional" rel="stylesheet">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     </head>
     <body>
-        <div class="container-fluid" id="main-wrapper">
-            <div id="heading-container" class="d-flex flex-column align-items-center">
-                <div id="heading-text" class="fade-in text-center mt-4 d-flex flex-column">
-                    <span class="display-3 font-heading">Persistence of vision</span>
-                    <div id="subheading-text" class="subheading-menu font-size-xl font-subheading d-flex justify-content-center align-self-center w-75">
-                        <span class="text-center align-self-center">Things I see in this city, that remain</span>
-                    </div>
+        <div class="container-fluid p-0 w-100" id="main-wrapper">
+            <div class="wrapper-main" :class="{night: nightMode}">
+            <div id="header" class="d-flex flex-row w-100 align-items-center">
+                <div id="night-mode" class="pl-2">
+                        <img class="icon-svg icon-svg-small" src="moon.svg" @click="toggleNightMode"></img>
                 </div>
-                <hr class="v-divide w-100"></hr>
+                <div id="heading-container" class="d-flex flex-column w-100 pr-3 align-items-center">
+                    <div id="heading-text" class="fade-in text-center mt-4 d-flex flex-column">
+                        <span class="display-3 font-heading text-heading">Delhi</span>
+                        <div id="subheading-text" class="subheading-menu font-size-xl font-subheading d-flex justify-content-center align-self-center w-75">
+                            <span class="text-center align-self-center">Things I see in this city, that remain</span>
+                        </div>
+                    </div>
+                    <hr class="v-divide w-100"></hr>
+                </div>
             </div>
-            <div id="posts-container" class="main-content">
-                <div class="post pre-load d-flex flex-column" v-for="(post, index) in posts" :id="index">
-                    <div class="d-flex flex-lg-row flex-column-reverse my-3 w-100 justify-content-between fadeIn">
-                        <div id="post-image" class="flex-equal mx-1 mt-1" v-for="(pic, index) in post.Pics" :key="index">
-                            <div class="image text-center"><img v-show="imageLoaded" :src=pic.url></img><!-- <div class="img-placeholder-div">&nbsp;</div>< --> </div> 
-                        </div>        
+            <div id="posts-container mb-1" class="main-content">
+                <div class="post pre-load d-flex flex-column" v-for="(post, index) in computedPosts" :id="index">
+                    <div class="d-flex flex-column-reverse my-3 w-100 justify-content-between fadeIn">
+                        <div id="post-image-slider-wrap" class="d-flex flex-row align-self-center">
+                                <div v-for="(pic, index) in post.Pics" class="slider-dot" :class="{selectedDot: isImageSelected(index, pic.url)}":key="index"></div>
+                        </div>
+                        <div id="post-image-gallery" @scroll.passive="handleGalleryScroll">
+                            <div id="post-image" class="flex-equal mt-1" v-for="(pic, index) in post.Pics" :key="index" :index="index+1" :length="post.Pics.length">
+                                <div class="image text-center"><img :src=pic.url></img> </div> 
+                            </div>    
+                        </div>
                         <div class="d-flex flex-column align-items-center flex-equal">
                             <div id="post-date" class="mt-1 align-items-start text-muted font-size-sm">{{sanitiseDate(post.Date)}}</div>
                             <div id="post-heading" class="mt-1 align-items-start display-4 text-center">{{post.Heading}}</div>
@@ -31,12 +43,25 @@
                             <div id="post-text" class="d-flex flex-column w-75 mt-3 text-justify" v-html=post.Notes></div>
                         </div>
                     </div>
+                    <div class="post-post d-flex flex-row align-self-center">
+                        <div id="likes" class="align-self-center mx-3">
+                            <img class="icon-svg icon-svg-small" src="like.svg" @click="likePost"></img>
+                        </div>
+                        <div id="comments" class="ml-2">
+                            <span id="comments-indication" @click="getComments(post.id)"> 
+                                <img id="comments-icon" class="icon-svg icon-svg-small" src="black-bubble-speech.svg"></img>
+                                <span id="comments-length" class="text-muted">{{countComments(post.Comments)}} </span>
+                            </span>
+                            <span id="comments-invite" class="text-muted">Say something.</span>
+                        </div>
+                    </div>
                     <hr class="v-divide w-25 mb-5 v-divide-double v-divide-strong"></hr>
                 </div>
             </div>
+            </div>
         </div>
     </body>
-    <script type="text/javascript">
+    <script type="module">
         /** Post Schema 
         Heading: string
         Description: string 
@@ -44,10 +69,17 @@
             pic in Pics: url string
         Notes: string
         **/
+
         var posts = new Vue({
            el: "#main-wrapper",
            data: {
                fetchedPosts : [],
+               fetchedPostsStatus: false,
+               computedPosts: [],
+               fetchedComments: [],
+               fetchedCommentsStatus: false,
+               computedComments: [],
+               postComments: [],
                dateOptions: {
                    weekday: "long",
                    month: "long",
@@ -56,12 +88,11 @@
                },
                placeholderHeight: null,
                placeholderWidth: null,
-               imageLoaded: true
+               nightMode: false,
+               selectedImageIndex: 0,
+               selectedImageSource: ""
            },
            computed : {
-                posts () {
-                return this.fetchedPosts.map(record => record.fields)
-                },
                 postsDOMArray () {
                     return [...document.getElementsByClassName("post")];
                 },
@@ -76,9 +107,16 @@
                 },
                 viewportHeight() {
                     return screen.availHeight;
+                },
+                viewportWidth() {
+                    return screen.availWidth;
                 }
            },
            methods: {
+               computePosts() {
+                console.log(this.fetchedPosts.map(record => record.fields));
+                this.computedPosts = this.fetchedPosts.map(record => record.fields);
+               },
                sanitiseDate(date) {
                    let dateObject = new Date(date);
                    return dateObject.toLocaleDateString('en-IN', this.dateOptions);
@@ -113,42 +151,63 @@
                     post.classList.remove("pre-load");
                 },
                 handleScroll(event) {
-                   //console.log(this.viewportHeight);
-                   //console.log(this.postHeights);
-                   //console.log(this.postOffsetHeights);
-                   //console.log(window.scrollY);
                    this.fadeElementsIn(window.scrollY);                  
+               },
+                toggleNightMode() {
+                   this.nightMode = !this.nightMode;
+               },
+                countComments(array) {
+                   if (array !== undefined) return array.length;
+                   return 0;
+               },
+               getComments(id) {
+                   this.postComments = this.computedComments.filter(record => record.Places.includes(id))
+               },
+               likePost(e) {
+                   
+                   e.target.classList.toggle("liked");
+                   //e.target.parentNode.classList.toggle("liked");
+               },
+               isImageSelected(index, url) {
+                   if(index == this.selectedImageIndex &&  url == this.selectedImageSource) return true;
+               },
+               handleGalleryScroll(e) {
+                   this.selectedImageIndex = parseInt( (e.target.scrollLeft / this.viewportWidth) + 0.1);
+                   this.selectedImageSource = e.target.children[this.selectedImageIndex].getElementsByTagName('img')[0].src;
                }
            },
-            mounted() {
-                fetch("https://api.airtable.com/v0/appvFZdnU9Q1R8Nao/Places?sort%5B0%5D%5Bfield%5D=Date&sort%5B0%5D%5Bdirection%5D=desc", {
-                    method: "GET",
-                    headers: {
-                        "Authorization": "Bearer keygoa21KKU4SNkWW"
+           watch: {
+                fetchedPostsStatus: function(value) {
+                    if(value === true) {
+                        this.computePosts();
                     }
-                    }).then(response => { return response.json() })
-                    .then(res => { 
-                            this.fetchedPosts = res.records;                   
-                    })
+                }
+           },
+            mounted() {
+                
+                fetch(`http://localhost:3000/posts`, {
+                       method: "GET",
+                   }).then(response => { return response.json() })
+                   .then(res => {
+                        this.fetchedPosts = res;
+                        this.fetchedPostsStatus = true;
+                   })
+
+                /* fetch(`https://api.airtable.com/v0/appvFZdnU9Q1R8Nao/Comments`, {
+                       method: "GET",
+                       headers: this.airtableAuthToken
+                   }).then(response => { return response.json() })
+                   .then(res => {
+                       this.fetchedComments = res.records;
+                   }) */
+            },
+            updated() {
+                if(document.getElementById(0) !== undefined) {
+                    this.fadeElementIn(0)
+                }
             },
             created() {
                 window.addEventListener('scroll', this.handleScroll);
-            },
-            updated() {
-                /* if(document.getElementById(0) !== null) this.fadeElementIn(0);
-                if(!this.imageLoaded) {
-                    let img = this.picsDOMArray[0];
-
-                    var poll = setInterval(function () {
-                        if (img.naturalWidth) {
-                            clearInterval(poll);   
-                            console.log("Image not loaded yet.")
-                            this.placeholderHeight = img.naturalHeight;
-                            this.placeholderWidth = img.naturalWidth;
-                        }
-                    }, 10);
-                    img.onload = () => {console.log("Image finished loading."); this.imageLoaded = true;}
-                } */
             },
             destroyed() {
                 window.removeEventListener('scroll', this.handleScroll);
