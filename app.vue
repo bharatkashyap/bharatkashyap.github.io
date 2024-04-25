@@ -21,7 +21,7 @@
         :heading="content.talks.text[locale]"
         :locale="locale"
       />
-      <Tagline :content="content.footnote" :locale="locale" />
+      <!-- <Tagline :content="content.footnote" :locale="locale" /> -->
       <Socials :links="content.links" />
     </div>
   </div>
