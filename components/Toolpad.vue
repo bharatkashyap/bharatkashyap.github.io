@@ -1,5 +1,9 @@
 <template>
-  <div id="toolpad">
+  <div
+    id="toolpad"
+    @pointerleave="handlePointerLeave()"
+    @touchstart="handlePointerLeave()"
+  >
     <div class="container">
       <div v-for="(icon, index) in icons" :key="index">
         <NuxtLink
@@ -11,7 +15,8 @@
             bouncing: bouncingIcon === index,
           }"
           :target="icon.type === 'external' ? '_blank' : ''"
-          @click="triggerBounce(index)"
+          @click="isTouchDevice() ? null : triggerBounce(index)"
+          @touchend="isTouchDevice() ? triggerBounce(index) : null"
         >
           <svg
             aria-hidden="true"
@@ -66,6 +71,14 @@ const { $routes } = useNuxtApp()
 
 const icons = $routes
 
+const isTouchDevice = () => {
+  return (
+    'ontouchstart' in window ||
+    navigator.maxTouchPoints > 0 ||
+    window.matchMedia('(hover: none)').matches
+  )
+}
+
 const isSelected = (iconRoute) => {
   if (iconRoute.startsWith('http')) {
     return false // External links are never selected
@@ -113,14 +126,14 @@ function updateButtonSizes(mouseX, mouseY) {
   })
 }
 
-function handleMouseMove(e) {
+function handlePointerMove(e) {
   const toolbar = document.querySelector('#toolpad')
   if (toolbar.contains(e.target)) {
     updateButtonSizes(e.clientX, e.clientY)
   }
 }
 
-function handleMouseLeave() {
+function handlePointerLeave() {
   const buttons = document.querySelectorAll('#toolpad a, #toolpad button')
   buttons.forEach((button) => {
     button.style.width = `${baseSize}px`
@@ -140,15 +153,11 @@ function toggleTheme(index) {
 }
 
 onMounted(() => {
-  document.addEventListener('mousemove', handleMouseMove)
-  const toolbar = document.querySelector('#toolpad')
-  toolbar.addEventListener('mouseleave', handleMouseLeave)
+  document.addEventListener('pointermove', handlePointerMove)
 })
 
 onUnmounted(() => {
-  document.removeEventListener('mousemove', handleMouseMove)
-  const toolbar = document.querySelector('#toolpad')
-  toolbar.removeEventListener('mouseleave', handleMouseLeave)
+  document.removeEventListener('pointermove', handlePointerMove)
 })
 </script>
 
@@ -158,7 +167,7 @@ onUnmounted(() => {
   display: flex;
   align-items: flex-end;
   width: auto;
-  height: 58px;
+  height: 3.5rem;
   padding-left: 8px;
   padding-right: 8px;
   position: fixed;
@@ -179,10 +188,10 @@ onUnmounted(() => {
 #toolpad .container {
   display: flex;
   align-items: flex-end;
-  gap: 8px;
+  gap: 0.5rem;
   width: 100%;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 #toolpad a,
@@ -199,8 +208,8 @@ onUnmounted(() => {
   background: var(--link-bg);
   position: relative;
   color: var(--link-color);
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   top: 0px;
   cursor: pointer;
   flex-shrink: 0;
@@ -287,9 +296,19 @@ onUnmounted(() => {
   border: 1px solid var(--toolpad-border);
 }
 
-#toolpad a:hover .tooltip,
-#toolpad button:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
+@media (hover: hover) {
+  #toolpad a:hover .tooltip,
+  #toolpad button:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  #toolpad a:active .tooltip,
+  #toolpad button:active .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 </style>

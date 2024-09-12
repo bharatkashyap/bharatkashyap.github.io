@@ -1,6 +1,6 @@
 <template>
   <div
-    class="place-items-center grid grid-cols-1 auto-rows-max w-full min-h-screen dark:bg-zinc-900 scrollbar-gutter-stable"
+    class="place-items-center grid grid-cols-1 auto-rows-max w-full min-h-screen dark:bg-zinc-900 scrollbar-gutter-stable mb-12 md:mb-0"
   >
     <div class="md:m-auto w-full md:w-2/3 lg:w-1/2">
       <NuxtPage />
@@ -23,6 +23,8 @@
   --link-color: hsl(0 0% 52.3%);
   --button-gap: 15px;
   --push-distance: 10px;
+  --scrollbar-bg: #2d3748;
+  --scrollbar-thumb: #4a5568;
 }
 
 .dark {
@@ -76,7 +78,6 @@
 .animation-delay-100 {
   animation-delay: 100ms;
 }
-
 
 /** MEDIA QUERIES */
 @media screen and (max-width: 768px) {

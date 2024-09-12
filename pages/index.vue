@@ -8,7 +8,7 @@
       class="flex flex-col opacity-0 animation-forwards animate-fade-in animation-delay-50"
     >
       <span
-        class="text-md md:text-xl text-gray-600 dark:text-neutral-200 my-5 crimson-text"
+        class="text-xl text-gray-600 dark:text-neutral-200 my-5 crimson-text"
         >{{ content.title[locale] }}</span
       >
       <figure class="my-4">
@@ -27,7 +27,7 @@
         </figcaption>
       </figure>
       <span
-        class="text-md md:text-xl text-gray-600 dark:text-zinc-300 my-5 border-l-4 border-gray-300 dark:border-gray-600 pl-4 crimson-text"
+        class="text-xl text-gray-600 dark:text-zinc-300 my-5 border-l-4 border-gray-300 dark:border-gray-600 pl-4 crimson-text"
       >
         {{ content.about.tldr[locale] }}
       </span>
@@ -42,7 +42,7 @@
       <!-- eslint-enable -->
     </div>
     <footer
-      class="opacity-0 text-lg animate-fade-in animation-forwards my-2 md:my-4 crimson-text"
+      class="opacity-0 text-md md:text-lg animate-fade-in animation-forwards my-2 md:my-4 crimson-text"
     >
       <div
         class="text-stone-500 dark:text-neutral-400 italic border-l-4 pl-4 border-zinc-400"
