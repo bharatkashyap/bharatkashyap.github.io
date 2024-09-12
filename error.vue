@@ -9,7 +9,7 @@ const props = defineProps({
     <div class="container flex items-center min-h-screen px-6 py-12 mx-auto">
       <div>
         <p class="text-sm font-medium text-blue-500 dark:text-blue-400">
-          {error.statusCode} error
+          {{ error?.statusCode ?? 500 }} error
         </p>
         <h1
           class="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl"

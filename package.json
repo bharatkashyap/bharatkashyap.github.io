@@ -8,14 +8,15 @@
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@fortawesome/vue-fontawesome": "^3.0.5",
+    "@nuxt/content": "latest",
     "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.8.0",
+    "@nuxtjs/tailwindcss": "^6.11.2",
     "nuxt": "latest",
-    "vue": "latest",
-    "@fortawesome/free-brands-svg-icons": "^6.5.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@nuxtjs/tailwindcss": "^6.11.2"
+    "vue": "latest"
+  },
+  "dependencies": {
+    "feed": "^4.2.2"
   }
 }

@@ -9,21 +9,28 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: '' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'The internet home of Bharat Kashyap',
+        },
         { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: '',
+        },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Public+Sans|Crimson+Text|Mukta&display=swap',
+          href: 'https://fonts.googleapis.com/css?family=Public+Sans|Crimson+Text&display=swap',
         },
       ],
     },
   },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -33,18 +40,41 @@ export default defineNuxtConfig({
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/tailwindcss
+    '@nuxt/content', // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxt/image',
   ],
 
-  devServerHandlers: [],
+  content: {
+    markdown: {
+      tags: {
+        h2: 'ProseH2',
+        p: 'Text',
+        img: 'Image',
+        a: 'ProseA',
+        ol: 'ProseOl',
+        ul: 'ProseUl',
+        pre: 'ProseCodeBlock',
+        blockquote: 'ProseBlockquote',
+        comments: 'Comments',
+      },
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    transpile: [
-      '@fortawesome/vue-fontawesome',
-      '@fortawesome/free-solid-svg-icons',
-      '@fortawesome/free-brands-svg-icons',
-    ],
+  devServerHandlers: [],
+
+  // RSS feed
+  nitro: {
+    prerender: {
+      routes: ['/rss.xml'],
+    },
   },
+  routeRules: {
+    '/rss.xml': {
+      prerender: true,
+    },
+  },
+
+  compatibilityDate: '2024-09-10',
 })
