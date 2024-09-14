@@ -39,7 +39,6 @@ export default defineEventHandler(async (event) => {
     .find()
 
   for (const post of posts) {
-    console.log('postinder', post.body)
     let content = ''
     if (typeof post.body === 'string') {
       content = post.body

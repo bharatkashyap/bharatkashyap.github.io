@@ -27,6 +27,4 @@ const content = $content
 const locale = $locale
 
 const { play } = content
-
-console.log(play)
 </script>
