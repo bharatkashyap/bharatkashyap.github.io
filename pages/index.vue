@@ -12,7 +12,7 @@
         >{{ content.title[locale] }}</span
       >
       <figure class="my-4">
-        <NuxtImg
+        <img
           src="/osaka.jpg"
           alt="Me in Osaka with my first and most sincere love: Chocolate"
           class="rounded-lg shadow-md max-w-xs mx-auto"
