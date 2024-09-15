@@ -26,7 +26,7 @@
         <NuxtLink :to="post._path" class="flex-grow">
           <div>
             <h2
-              class="text-xl font-semibold text-sky-600 crimson-text dark:text-blue-400"
+              class="text-xl font-semibold text-zinc-500 crimson-text dark:text-blue-400"
             >
               {{ post.title }}
             </h2>

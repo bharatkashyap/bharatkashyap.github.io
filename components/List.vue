@@ -6,7 +6,7 @@
   </h2>
 
   <div v-for="(item, index) in items" :key="index" class="mb-8 public-sans">
-    <h3 class="text-xl font-semibold crimson-text dark:text-zinc-200">
+    <h3 class="text-xl font-semibold crimson-text dark:text-blue-400">
       {{ item.title }}
     </h3>
     <p class="text-sm text-gray-600 dark:text-zinc-300 italic mb-1">
