@@ -51,13 +51,13 @@ export const content = {
         en: 'I was greatly interested in societal improvement all through college years and got multiple internships in the area. I graduated in 2020 and found a job to pursue the same interest: to apply open-source technology for governments.',
       },
       {
-        en: 'I remain extremely thankful for the year and a half I spent at this job, since it provided opportunity to understand many facts of the world I was attempting to impact',
+        en: 'I remain extremely thankful for the year and a half I spent at this job, since it provided opportunity to understand many facts of the world I was attempting to impact.',
       },
       {
         en: 'My work with open-source coupled with a desire to separate work and play got me an offer to work full-time for an open-source company whose projects I had been using for many years.',
       },
       {
-        en: 'On the side, I work with an organisations trying to bring about orbital shifts in Indian society. This is a <a href="https://www.ted.com/talks/brian_little_who_are_you_really_the_puzzle_of_personality" target="_blank" class="link">core project</a>.',
+        en: 'On the side, I work with an organisation called <a href="https://ispirt.in" target="_blank" class="link">iSPIRT</a> which is trying to bring about orbital shifts in Indian society. This is a <a href="https://www.ted.com/talks/brian_little_who_are_you_really_the_puzzle_of_personality" target="_blank" class="link">core project</a>.',
       },
       {
         en: 'As of writing, I continue to work at MUI, get to travel a fair bit because of the remote nature of the job and spend the rest of my time being guided by curiosity',
