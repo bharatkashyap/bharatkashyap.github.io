@@ -22,7 +22,7 @@ While not totally fair, for the unfortunate sake of recency, my mind made compar
 
 If to you this sounds hardly believable, let the verification of this claim be the reason you watch the film.
 
-It's also what Randeep Hooda talks about in this [free-flowing Haryanvi interview](https://www.youtube.com/watch?v=X2TGzWcNbgM) I watched after I saw the film a second time. I hadn't seen any of his interviews till that point since to me it seemed – based on headline-skimming – as if he was complaining about audiences not rewarding his effort. However, to his credit, he does of none of that. The only complaint is about all his effort into making _Savarkar_ a _good film_ being overlooked by the political controversy surrounding it – amplified due to the coincidental timing with national elections in India.
+It's also what Randeep Hooda talks about in this [free-flowing Haryanvi interview](https://www.youtube.com/watch?v=X2TGzWcNbgM) I watched after I saw the film a second time. I hadn't seen any of his interviews till that point since to me it seemed – based on headline-skimming – as if he was complaining about audiences not rewarding his effort. However, to his credit, he does none of that. The only complaint is about all his effort into making _Savarkar_ a _good film_ being overlooked by the political controversy surrounding it – amplified due to the coincidental timing with national elections in India.
 
 Poetic irony that much like its subject, the film will, perhaps, remain unappreciated while it is contemporary.
 
