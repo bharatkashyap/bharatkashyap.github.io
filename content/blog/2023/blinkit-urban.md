@@ -4,7 +4,7 @@ description: 'A step-by-step guide to fixing our roads'
 date: '2023-10-08'
 ---
 
-In my travels to more developed nations than India, one of the few things that sticks out starkly as what we lack and what they have is a working system of urban maintenance. Their roads, footpaths (or, as they are often also called, sidewalks), signage, street lighting, drainage systems, waste disposal systems – and the like, you get the picture – are in a visible state of order and repair. In India, it is a rule that these exact same systems will be in a state of disrepair. The greatest travesty of living in modern urban India is that finding these basic elements in working order is a rare, pleasant surprise.
+In my travels to nations more developed than India, one of the few things that sticks out starkly as what we lack and what they have is a working system of urban maintenance. Their roads, footpaths (or, as they are often also called, sidewalks), signage, street lighting, drainage systems, waste disposal systems – and the like, you get the picture – are in a visible state of order and repair. In India, it is a rule that these exact same systems will be in a state of disrepair. The greatest travesty of living in modern urban India is that finding these basic elements in working order is a rare, pleasant surprise.
 
 This morning, when I flipped out my phone to order a set of fruits for the next couple of days on Blinkit, I imagined a similar situation existing for the urban maintenance problem here. As the bell rang a few minutes in and a delivery agent – dressed smartly in a T-Shirt celebrating ISRO's Chandrayaan –appeared, I began devising a model to fix our problems of perpetual urban disrepair.
 
