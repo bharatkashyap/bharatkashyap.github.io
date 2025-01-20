@@ -58,6 +58,9 @@ export default defineNuxtConfig({
         comments: 'Comments',
       },
     },
+    highlight: {
+      theme: 'github-dark',
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
