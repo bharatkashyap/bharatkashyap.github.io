@@ -13,7 +13,7 @@ The writer seemed to be a credentialed founder who has done his own time in big 
 
 I agree with him, partially. Money is important; financial planning is vital; contingencies can cause great stress if not prepared for in advance.
 
-Where I disagree: people are built differently. I'm not ascribing generalisation to him - he's speaking of his experience, but having I thought it was worth responding to from the perspective of those he marginalises as people who "lost out on a lot of money".
+Where I disagree: people are built differently. I'm not ascribing generalisation to him - he's speaking of his experience, but I thought it was worth responding from the perspective of those he marginalises as people who "lost out on a lot of money".
 
 I never sat for placement positions in college. I was intent on working for companies I felt were doing meaningful work; I had found one and planned on joining them full-time. As part of my search for meaning, I had planned a few attempts at the civil service exam as well.
 
