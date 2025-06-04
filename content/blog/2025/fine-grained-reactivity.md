@@ -1,7 +1,7 @@
 ---
 title: 'Fine-Grained Reactivity in React'
 date: '2025-06-05'
-description: 'How to minimize re-renders in large React trees using a custom Store and selector-based subscriptions.'
+description: 'Minimizing re-renders in large React trees using a custom Store'
 tags: ['react', 'performance', 'state-management', 'selectors', 'optimization']
 ---
 
