@@ -1,11 +1,13 @@
 ---
-title: 'Fine-Grained Reactivity in React: Efficient State Management with Selectors'
-date: '2025-01-20'
+title: 'Fine-Grained Reactivity in React'
+date: '2025-06-05'
 description: 'How to minimize re-renders in large React trees using a custom Store and selector-based subscriptions.'
 tags: ['react', 'performance', 'state-management', 'selectors', 'optimization']
 ---
 
 When building large, interactive UIs—think lists, grids, or charts—performance can quickly become a concern. One of the most effective ways to optimize React apps is to minimize unnecessary re-renders, especially in trees with many children. This post explores a pattern for fine-grained reactivity using a custom Store and selector-based subscriptions, allowing only the components that need to update to re-render.
+
+_This post is due in large part to an internal research memo written by a colleague. What I'm writing here is my attempt to store it for posterity._
 
 ## The Problem: Context and Re-renders
 
