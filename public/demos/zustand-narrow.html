@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zustand Narrow Selector Demo</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      padding: 20px;
+      background: transparent;
+      margin: 0;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .heart-button {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #d1d5db;
+      background: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .heart-button:hover {
+      transform: scale(1.1);
+    }
+    .heart-button:active {
+      transform: scale(0.95);
+    }
+    .heart-button.saved {
+      background: #fee2e2;
+      border-color: #ef4444;
+    }
+    .heart-button .flash {
+      position: absolute;
+      inset: 0;
+      background: #fbbf24;
+      opacity: 0.6;
+      border-radius: 50%;
+      animation: pulse 0.3s;
+      pointer-events: none;
+    }
+    .heart-button.flashing {
+      box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.7);
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.3; }
+    }
+    .info {
+      font-size: 12px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/demos/narrow.js"></script>
+</body>
+</html>

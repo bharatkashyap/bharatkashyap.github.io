@@ -30,5 +30,3 @@ This is my first foray into the world of blogging, and I sincerely hope that I d
 Okay, enough of the description. Now, I say Goodbye till we next meet.
 
 Well, it's not goodbye after all, is it?
-
-::comments{:comments="$doc.comments"}

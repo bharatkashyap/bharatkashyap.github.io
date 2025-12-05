@@ -96,5 +96,3 @@ A large number of game modes, including a curious yet interesting Ghost mode, an
 It's Counter Strike for free.
 
 Download [here](https://crossfire.z8games.com/).
-
-::comments{:comments="$doc.comments"}

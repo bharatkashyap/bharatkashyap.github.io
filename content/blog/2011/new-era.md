@@ -60,5 +60,3 @@ We reached the school's auditorium and waited as the makeshift audience made the
 We received our prizes (Harry Potter Book. Alright, it's lame) quickly and left so that could we could reach in time to board the buses and reach home. The trophies are still to be received by us, and I'll probably get mine tomorrow or day after.
 
 Now it's Code Wars next.
-
-::comments{:comments="$doc.comments"}

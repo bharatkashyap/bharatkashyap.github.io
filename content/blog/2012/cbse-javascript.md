@@ -38,5 +38,3 @@ Last night, me and a certain other person had this amazing idea to make a search
 Update (2016) : That link doesn't exist anymore; I have no saved version of what we made back then. So yeah, that is that.
 
 P.S : I will be doing this when the class XII results come out as well. _Jitni gaaliya nikaalni hai nikaal lo._
-
-<!-- COMMENTS_PLACEHOLDER -->

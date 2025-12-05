@@ -95,5 +95,3 @@ As promised, previous year papers:
 **DISCLAIMER**: The facts, figures and advice mentioned in this article come with no guarantee of being absolutely correct and relevant and in no event whatsoever shall the author be liable for any damages suffered by any person because of referring to them.
 
 Always wanted to make up my own legal disclaimer :')
-
-<!-- COMMENTS_PLACEHOLDER -->

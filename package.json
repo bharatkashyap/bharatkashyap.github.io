@@ -6,15 +6,21 @@
     "dev": "nuxt dev",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "build:demos": "vite build --config vite.demos.config.js"
   },
   "devDependencies": {
     "@nuxt/content": "latest",
     "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.8.0",
     "@nuxtjs/tailwindcss": "^7.0.0-beta.1",
+    "@vitejs/plugin-react": "^5.1.1",
     "nuxt": "^4.2.1",
-    "vue": "latest"
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "vite": "^7.2.6",
+    "vue": "latest",
+    "zustand": "^5.0.9"
   },
   "dependencies": {
     "better-sqlite3": "^12.5.0",

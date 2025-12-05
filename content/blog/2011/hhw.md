@@ -52,5 +52,3 @@ I have started with the Open Office Text Document, while the rest stay out-of-my
 Well, it has to be done.
 
 But then, what use is the entire month of June?
-
-::comments{:comments="$doc.comments"}
