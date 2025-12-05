@@ -4,14 +4,14 @@
   >
     <div class="flex justify-between items-center mb-8">
       <h1
-        class="text-3xl text-red-600 dark:text-red-400 font-bold crimson-text"
+        class="text-3xl text-gray-800 dark:text-gray-200 font-bold crimson-text"
       >
         Writing
       </h1>
       <a
         href="/rss.xml"
         target="_blank"
-        class="text-blue-400 dark:text-blue-300 hover:underline public-sans"
+        class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:underline public-sans transition-colors"
         title="RSS Feed"
       >
         RSS
@@ -26,7 +26,7 @@
         <NuxtLink :to="post.path" class="flex-grow">
           <div>
             <h2
-              class="text-xl font-semibold text-zinc-500 crimson-text dark:text-blue-400"
+              class="text-xl font-semibold text-gray-700 crimson-text dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors"
             >
               {{ post.title }}
             </h2>

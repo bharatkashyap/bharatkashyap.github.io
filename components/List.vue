@@ -1,12 +1,14 @@
 <template>
   <h2
-    class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 text-red-600 dark:border-gray-700 dark:text-red-400 crimson-text"
+    class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 text-gray-800 dark:border-gray-700 dark:text-gray-200 crimson-text"
   >
     {{ title }}
   </h2>
 
   <div v-for="(item, index) in items" :key="index" class="mb-8 public-sans">
-    <h3 class="text-xl font-semibold crimson-text dark:text-blue-400">
+    <h3
+      class="text-xl font-semibold crimson-text text-gray-700 dark:text-gray-300"
+    >
       {{ item.title }}
     </h3>
     <p class="text-sm text-gray-600 dark:text-zinc-300 italic mb-1">
@@ -26,7 +28,7 @@
         :href="link"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-600 dark:text-blue-400 hover:underline mr-4"
+        class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:underline mr-4 transition-colors"
       >
         {{ linkIndex + 1 }}
       </a>
