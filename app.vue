@@ -10,16 +10,13 @@
 </template>
 
 <style>
-
-
 :root {
   --gradient-color-1: hsl(0 0% 97.3%);
   --gradient-color-2: hsl(0 0% 90.9%);
   --toolpad-border: hsl(0 0% 0% / 0.071);
   --toolpad-bg: rgba(255, 255, 255);
   --toolpad-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-  --toolpad-gray: hsl(0 0% 52.3%)
-  --link-bg: hsl(0 0% 95.1%);
+  --toolpad-gray: hsl(0 0% 52.3%) --link-bg: hsl(0 0% 95.1%);
   --link-color: hsl(0 0% 52.3%);
   --button-gap: 15px;
   --push-distance: 10px;
@@ -74,6 +71,9 @@
 /** ANIMATIONS */
 .animation-forwards {
   animation-fill-mode: forwards;
+}
+.animation-delay-50 {
+  animation-delay: 50ms;
 }
 .animation-delay-100 {
   animation-delay: 100ms;

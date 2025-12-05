@@ -20,10 +20,10 @@
     <ul class="space-y-6">
       <li
         v-for="post in posts"
-        :key="post._path"
+        :key="post.path"
         class="flex justify-between items-baseline hover:bg-gray-100 p-2 rounded-lg transition-colors duration-300 dark:hover:bg-zinc-800"
       >
-        <NuxtLink :to="post._path" class="flex-grow">
+        <NuxtLink :to="post.path" class="flex-grow">
           <div>
             <h2
               class="text-xl font-semibold text-zinc-500 crimson-text dark:text-blue-400"
@@ -45,7 +45,8 @@
 </template>
 
 <script setup>
+// Nuxt Content v3: Use queryCollection instead of queryContent
 const { data: posts } = await useAsyncData('posts', () =>
-  queryContent('/blog').sort({ date: -1 }).find()
+  queryCollection('blog').order('date', 'DESC').all(),
 )
 </script>

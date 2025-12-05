@@ -103,4 +103,4 @@ Personally, I found the procedure very quick and efficient.
 
 P.S : I should be saying that illegal use of tools and methods mentioned here must be avoided.
 
-::comments{:comments="comments"}
+::comments{:comments="$doc.comments"}

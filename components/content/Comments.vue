@@ -1,5 +1,8 @@
 <template>
-  <div class="comments mt-8 border-t border-gray-700 py-8">
+  <div
+    v-if="comments && comments.length > 0"
+    class="comments mt-8 border-t border-gray-700 py-8"
+  >
     <!-- Only render this heading at the top level -->
     <h2
       v-if="level === 0"
@@ -17,14 +20,14 @@
           <span class="text-gray-600 dark:text-gray-400">{{
             comment.author
           }}</span>
-          <span class="text-gray-400 dark:text-gray-400 text-sm ml-2">{{
-            formatDate(comment.date)
-          }}</span>
+          <span class="text-gray-400 dark:text-gray-400 text-sm ml-2">
+            {{ formatDate(comment.date) }}
+          </span>
         </div>
         <p class="text-gray-500 dark:text-gray-300">{{ comment.content }}</p>
         <!-- Recursively render replies -->
         <Comments
-          v-if="comment.replies"
+          v-if="comment.replies && comment.replies.length > 0"
           :comments="comment.replies"
           :level="level + 1"
         />
@@ -36,7 +39,7 @@
 <script setup>
 const props = defineProps({
   comments: {
-    type: Array,
+    type: [Array, String, Object],
     default: () => [],
   },
   level: {
@@ -46,13 +49,27 @@ const props = defineProps({
 })
 
 function formatDate(dateString) {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' }
-  return new Date(dateString).toLocaleDateString(undefined, options)
+  if (!dateString) return 'Unknown date'
+
+  try {
+    const date = new Date(dateString)
+
+    if (isNaN(date.getTime())) {
+      return dateString
+    }
+
+    // Use explicit locale for consistent SSR/client rendering
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+    return date.toLocaleDateString('en-US', options)
+  } catch (error) {
+    console.error('Error formatting date:', dateString, error)
+    return dateString || 'Unknown date'
+  }
 }
 
 const replyListClass = computed(() => {
   const baseClasses = 'space-y-4'
-  const indentClass = `ml-${Math.min(props.level * 4, 16)}` // Cap at ml-32 for deep nesting
+  const indentClass = `ml-${Math.min(props.level * 4, 16)}`
   return `${baseClasses} ${indentClass}`
 })
 </script>

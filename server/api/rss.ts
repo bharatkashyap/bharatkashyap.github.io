@@ -1,5 +1,4 @@
 import { Feed } from 'feed'
-import { serverQueryContent } from '#content/server'
 
 interface ContentNode {
   type?: string
@@ -11,9 +10,9 @@ interface ContentNode {
 
 interface BlogPost {
   title?: string
-  _path?: string
+  path?: string // Updated from _path for Nuxt Content v3
   description?: string
-  body: string | ContentNode
+  body: any // Cast to any to handle MarkdownRoot structure
   date: string
 }
 
@@ -34,9 +33,11 @@ export default defineEventHandler(async (event) => {
     },
   })
 
-  const posts = await serverQueryContent<BlogPost>(event, 'blog')
-    .sort({ date: -1 })
-    .find()
+  // Cast queryCollection result to any[] to avoid strict type checking issues 
+  // until content types are fully regenerated
+  const posts = await queryCollection(event, 'blog')
+    .order('date', 'DESC')
+    .all() as any[]
 
   for (const post of posts) {
     let content = ''
@@ -48,8 +49,8 @@ export default defineEventHandler(async (event) => {
 
     feed.addItem({
       title: post.title ?? '',
-      id: `https://bharatk.in${post._path}`,
-      link: `https://bharatk.in${post._path}`,
+      id: `https://bharatk.in${post.path}`,
+      link: `https://bharatk.in${post.path}`,
       description: post.description ?? '',
       content: content,
       date: new Date(post.date),
@@ -61,18 +62,28 @@ export default defineEventHandler(async (event) => {
 })
 
 function renderContent(node: ContentNode | ContentNode[]): string {
+  if (!node) return '' // Safety check
   if (typeof node === 'string') return node
   if (Array.isArray(node)) return node.map(renderContent).join('')
-  if (node.type === 'root') return renderContent(node.children ?? [])
+
+  // Handle root node having children but not being an array itself
+  if (node.type === 'root' && node.children) return renderContent(node.children)
+
+  if (node.type === 'image') {
+    // Simple Image handling just in case
+    return `<img src="${node.props?.src || ''}" alt="${node.props?.alt || ''}" />`
+  }
+
   if (node.type === 'text') return node.value ?? ''
+
   if (node.tag) {
     // Skip the comments node
     if (node.tag === 'comments') return ''
     const attrs = node.props
       ? ' ' +
-        Object.entries(node.props)
-          .map(([key, value]) => `${key}="${value}"`)
-          .join(' ')
+      Object.entries(node.props)
+        .map(([key, value]) => `${key}="${value}"`)
+        .join(' ')
       : ''
     const children = node.children ? renderContent(node.children) : ''
     return `<${node.tag}${attrs}>${children}</${node.tag}>`

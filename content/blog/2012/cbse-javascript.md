@@ -39,4 +39,4 @@ Update (2016) : That link doesn't exist anymore; I have no saved version of what
 
 P.S : I will be doing this when the class XII results come out as well. _Jitni gaaliya nikaalni hai nikaal lo._
 
-:::comments{:comments="comments"}
+<!-- COMMENTS_PLACEHOLDER -->

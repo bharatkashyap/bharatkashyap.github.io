@@ -9,6 +9,8 @@ Recently, at work, I was required to check for an object being empty or not with
 
 Going by [Romain's excellent internal guide](https://www.notion.so/mui-org/Performance-guide-memory-allocations-134cbfe7b66080cba325db614278fc20) ( [here's a more general, public version](https://romgrk.com/posts/optimizing-javascript/) ), I was hesitant about using `Object.keys(obj).length === 0`, so decided to test the options out for myself.
 
+Option 1:
+
 ```js
 const isObjEmpty1 = (obj) => {
   for (const k in obj) {
@@ -18,11 +20,15 @@ const isObjEmpty1 = (obj) => {
 }
 ```
 
-```javascript
+Option 2:
+
+```js
 const isObjEmpty2 = (obj) => Object.keys(obj).length === 0
 ```
 
-```javascript
+Option 3:
+
+```js
 const isObjEmpty3 = (obj) => Object.getOwnPropertyNames(obj).length === 0
 ```
 

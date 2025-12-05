@@ -1,10 +1,10 @@
 <template>
-  <h3
-    class="text-xl font-semibold mb-2 mt-4 text-gray-500 dark:text-zinc-300"
+  <pre
     v-bind="$attrs"
+    class="ml-8 p-4 rounded-lg overflow-x-auto my-4 text-sm font-mono"
   >
     <slot />
-  </h3>
+  </pre>
 </template>
 
 <script setup>

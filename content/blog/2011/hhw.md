@@ -53,4 +53,4 @@ Well, it has to be done.
 
 But then, what use is the entire month of June?
 
-::comments{:comments="comments"}
+::comments{:comments="$doc.comments"}

@@ -31,4 +31,4 @@ Okay, enough of the description. Now, I say Goodbye till we next meet.
 
 Well, it's not goodbye after all, is it?
 
-::comments{:comments="comments"}
+::comments{:comments="$doc.comments"}

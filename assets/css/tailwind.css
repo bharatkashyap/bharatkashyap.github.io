@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Configure dark mode to use class strategy */
+@theme {
+  /* Define the fade animation keyframes */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.6, 1);
+  
+  /* Animation definitions */
+  --animate-fade-in: fade 1000ms var(--ease-in-out) 1;
+}
+
+/* Define the fade keyframes */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Enable class-based dark mode */
+@variant dark (&:where(.dark, .dark *));

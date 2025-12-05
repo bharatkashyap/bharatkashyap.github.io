@@ -97,4 +97,4 @@ It's Counter Strike for free.
 
 Download [here](https://crossfire.z8games.com/).
 
-::comments{:comments="comments"}
+::comments{:comments="$doc.comments"}

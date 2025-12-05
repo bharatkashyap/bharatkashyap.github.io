@@ -9,8 +9,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          hid: 'description',
+        {          
           name: 'description',
           content: 'The internet home of Bharat Kashyap',
         },
@@ -44,23 +43,12 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
   ],
 
-  content: {
-    markdown: {
-      tags: {
-        h2: 'ProseH2',
-        p: 'Text',
-        img: 'Image',
-        a: 'ProseA',
-        ol: 'ProseOl',
-        ul: 'ProseUl',
-        pre: 'ProseCodeBlock',
-        blockquote: 'ProseBlockquote',
-        comments: 'Comments',
-      },
-    },
-    highlight: {
-      theme: 'github-dark',
-    },
+  // Import Tailwind v4 CSS
+  css: ['~/assets/css/tailwind.css'],
+
+  // Tailwind v4 configuration
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -12,11 +12,12 @@
     "@nuxt/content": "latest",
     "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.8.0",
-    "@nuxtjs/tailwindcss": "^6.11.2",
-    "nuxt": "latest",
+    "@nuxtjs/tailwindcss": "^7.0.0-beta.1",
+    "nuxt": "^4.2.1",
     "vue": "latest"
   },
   "dependencies": {
-    "feed": "^4.2.2"
+    "better-sqlite3": "^12.5.0",
+    "feed": "^5.1.0"
   }
 }

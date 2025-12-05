@@ -109,11 +109,12 @@ function updateButtonSizes(mouseX, mouseY) {
     const buttonCenterY = rect.top + rect.height / 2
 
     const distance = Math.sqrt(
-      Math.pow(mouseX - buttonCenterX, 2) + Math.pow(mouseY - buttonCenterY, 2)
+      Math.pow(mouseX - buttonCenterX, 2) + Math.pow(mouseY - buttonCenterY, 2),
     )
 
     const maxDistance = Math.sqrt(
-      Math.pow(rect.width * (affectedButtons + 1), 2) + Math.pow(rect.height, 2)
+      Math.pow(rect.width * (affectedButtons + 1), 2) +
+        Math.pow(rect.height, 2),
     )
 
     const size =
@@ -142,9 +143,9 @@ function handlePointerLeave() {
 }
 
 function toggleTheme(index) {
-  document.body.classList.toggle('dark')
+  document.documentElement.classList.toggle('dark')
   const themeIcon = document.querySelector('#toolpad button svg')
-  if (document.body.classList.contains('dark')) {
+  if (document.documentElement.classList.contains('dark')) {
     themeIcon.innerHTML = icons[index].svgDark
   } else {
     themeIcon.innerHTML = icons[index].svg

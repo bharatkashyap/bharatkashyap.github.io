@@ -90,6 +90,3 @@ You can drop in anytime to read – they really are pretty epic.
 P.S: I'm attaching this image because for the first time in my life I got a seat in the Metro, and well I want to show off:
 
 ![The yellow line train back home](/blog/img/yellow-line.webp)
-
-:::comments{:comments="comments"}
-:::

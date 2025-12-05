@@ -86,5 +86,3 @@ WTF?!?
 We even won the overall winners trophy, which is quite coveted and was the one target we really wanted to achieve this year.
 
 Oh and yeah, Happy New Year 2012 to everybody!
-
-::comments{:comments="comments"}

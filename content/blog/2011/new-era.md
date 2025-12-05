@@ -61,4 +61,4 @@ We received our prizes (Harry Potter Book. Alright, it's lame) quickly and left 
 
 Now it's Code Wars next.
 
-::comments{:comments="comments"}
+::comments{:comments="$doc.comments"}
