@@ -32,7 +32,7 @@ const { path } = useRoute()
 
 // Nuxt Content v3: Query by path using queryCollection
 const { data: post } = await useAsyncData(`content-${path}`, async () => {
-  const results = await queryCollection('blog').path(path).first()
+  const results = await queryCollection('writing').path(path).first()
 
   return results
 })

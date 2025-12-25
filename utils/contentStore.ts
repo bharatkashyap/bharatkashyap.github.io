@@ -579,7 +579,7 @@ export function initLocale(initialLocale: string) {
 
 export function detectBrowserLocale() {
   if (import.meta.client && navigator.languages && navigator.languages.length) {
-    return navigator.languages[0].startsWith('hi') ? 'hi' : 'en'
+    return navigator.languages[0]?.startsWith('hi') ? 'hi' : 'en'
   }
   return 'en' // Default to English if detection fails
 }

@@ -47,6 +47,6 @@
 <script setup>
 // Nuxt Content v3: Use queryCollection instead of queryContent
 const { data: posts } = await useAsyncData('posts', () =>
-  queryCollection('blog').order('date', 'DESC').all(),
+  queryCollection('writing').order('date', 'DESC').all(),
 )
 </script>

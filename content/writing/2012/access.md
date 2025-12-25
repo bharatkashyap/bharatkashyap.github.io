@@ -42,7 +42,7 @@ comments:
 Apologies. I have been extremely busy and I figure, I will continue to be so for the remainder of my life, so I'm afraid to announce that I, from now on, will be blogging occasionally.  
 But as it is I have no readers, so who I am apologizing to?
 
-For those who're just here for the archive, well here's the [Senior Quiz Final](/blog/pdf/access-2011.pdf). (The SQ Final was the only part of the entire event worth making an archive).
+For those who're just here for the archive, well here's the [Senior Quiz Final](/writing/pdf/access-2011.pdf). (The SQ Final was the only part of the entire event worth making an archive).
 
 For those who're still here, let us begin. [ACCESS](https://modernschool.net/2020/04/08/access-2019/) is the annual IT Symposium held by Modern BK's IT Club 'Bits and Bytes.' The event is highly anticipated by all because:
 

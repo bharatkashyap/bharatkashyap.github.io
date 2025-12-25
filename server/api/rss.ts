@@ -33,11 +33,11 @@ export default defineEventHandler(async (event) => {
     },
   })
 
-  // Cast queryCollection result to any[] to avoid strict type checking issues 
+  // Cast queryCollection result to any[] to avoid strict type checking issues
   // until content types are fully regenerated
-  const posts = await queryCollection(event, 'blog')
+  const posts = (await queryCollection('writing')
     .order('date', 'DESC')
-    .all() as any[]
+    .all()) as any[]
 
   for (const post of posts) {
     let content = ''
@@ -81,9 +81,9 @@ function renderContent(node: ContentNode | ContentNode[]): string {
     if (node.tag === 'comments') return ''
     const attrs = node.props
       ? ' ' +
-      Object.entries(node.props)
-        .map(([key, value]) => `${key}="${value}"`)
-        .join(' ')
+        Object.entries(node.props)
+          .map(([key, value]) => `${key}="${value}"`)
+          .join(' ')
       : ''
     const children = node.children ? renderContent(node.children) : ''
     return `<${node.tag}${attrs}>${children}</${node.tag}>`

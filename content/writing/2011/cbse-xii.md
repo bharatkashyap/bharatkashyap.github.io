@@ -36,4 +36,4 @@ Well if the you've patiently read the entire post and finally reached here, this
 
 **Update (2024)**: The original links don't exist anymore, so they have been removed. Also, in a (now) hilarious – at the time, not so much – twist of fate, my own Class XII result turned out to be catastrophically bad considering my stellar academic track record. Here's me putting out the result on the internet as penance for doing the same to others thirteen years ago:
 
-![64/100 in mathematics](/blog/img/cbse-xii-bk.png)
+![64/100 in mathematics](/writing/img/cbse-xii-bk.png)

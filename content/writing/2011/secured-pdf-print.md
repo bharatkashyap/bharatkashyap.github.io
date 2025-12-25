@@ -81,7 +81,7 @@ So this goes out to all of those folks out there who've tried to print those sec
 
 This is what a secured PDF looks like, where printing is not allowed. Mind you, the feature is very annoying. _Very Annoying._
 
-![Secured PDF](/blog/img/secure-pdf.jpg)
+![Secured PDF](/writing/img/secure-pdf.jpg)
 
 So what I had on my hands was an awesome tech quizzing eBook, which unfortunately, due to it being secured at the time of creation, did not allow me to print it.
 

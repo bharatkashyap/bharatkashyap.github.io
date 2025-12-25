@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/blog/:path*",
+      "destination": "/writing/:path*",
+      "permanent": true
+    }
+  ]
+}
