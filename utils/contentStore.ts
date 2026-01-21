@@ -60,7 +60,10 @@ export const content = {
         en: 'On the side, I work with an organisation called <a href="https://ispirt.in" target="_blank" class="link">iSPIRT</a> which is trying to bring about orbital shifts in Indian society. This is a <a href="https://www.ted.com/talks/brian_little_who_are_you_really_the_puzzle_of_personality" target="_blank" class="link">core project</a>.',
       },
       {
-        en: 'As of writing, I continue to work at MUI, get to travel a fair bit because of the remote nature of the job and spend the rest of my time being guided by curiosity',
+        en: 'For almost four years, I worked at MUI to build with and learn from some of the great open-source developers of the world. I also got to travel a fair bit because of the remote nature of the job of which I am still trying to write about <a href="https://www.auraq.in/" target="_blank">here</a>',
+      },
+      {
+        en: 'I was driven by the curiosity to experience life on the other end of the spectrum (in more ways than one) and thus have, as of writing, moved to Bangkok to work at Agoda. After spending multiple hours browsing through hotel listings for leisure I now find myself doing that for work and have found that to be an enjoyable perk.',
       },
     ],
   },
