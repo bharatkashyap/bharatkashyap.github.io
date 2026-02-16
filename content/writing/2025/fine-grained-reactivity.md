@@ -1,5 +1,5 @@
 ---
-title: 'Fine-Grained Reactivity in React'
+title: 'Fine-grained reactivity in React'
 date: '2025-06-05'
 description: 'Minimizing re-renders in large React trees using a custom Store'
 tags: ['react', 'performance', 'state-management', 'selectors', 'optimization']
