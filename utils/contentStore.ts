@@ -60,7 +60,7 @@ export const content = {
         en: 'On the side, I work with an organisation called <a href="https://ispirt.in" target="_blank" class="link">iSPIRT</a> which is trying to bring about orbital shifts in Indian society. This is a <a href="https://www.ted.com/talks/brian_little_who_are_you_really_the_puzzle_of_personality" target="_blank" class="link">core project</a>.',
       },
       {
-        en: 'For almost four years, I worked at MUI to build with and learn from some of the great open-source developers of the world. I also got to travel a fair bit because of the remote nature of the job of which I am still trying to write about <a href="https://www.auraq.in/" target="_blank" class="link">here</a>.',
+        en: 'For almost four years, I worked at MUI to build with and learn from some of the great open-source developers of the world. I also got to travel a fair bit because of the remote nature of the job of which I am still trying to write about <a href="https://auraq.bharatk.in/" target="_blank" class="link">here</a>.',
       },
       {
         en: 'I was driven by the curiosity to experience life on the other end of the spectrum (in more ways than one) and thus have, as of writing, moved to Bangkok to work at Agoda. As of writing I can confirm that browsing through hotel and activity listings is an enjoyable perk at work.',
@@ -175,7 +175,7 @@ export const content = {
         hi: 'एक सामुदायिक ऑनलाइन पत्रिका जो जीवन, संस्कृति और शहरों पर लेख प्रकाशित करती है। मैं Auraq के लिए लेख एकत्र करता हूं और वेबसाइट को चालू रखता हूं।',
       },
       designation: 'Maintainer',
-      pow: ['https://auraq.in'],
+      pow: ['https://auraq.bharatk.in'],
     },
     {
       title: 'iSPIRT',
@@ -312,7 +312,7 @@ export const routes = [
     svg: `<path opacity="0.25" d="M2 5.5L8 4L14 6L20 4.5V18.5L14 20L8 18L2 19.5V5.5Z" fill="currentColor"/>
   <path d="M2 5.5L8 4V18L2 19.5V5.5ZM14 6L8 4V18L14 20V6ZM20 4.5L14 6V20L20 18.5V4.5ZM6 8H8V10H6V8ZM10 12H12V14H10V12ZM14 10H16V12H14V10Z" fill="currentColor"/>
 `,
-    route: 'https://auraq.in',
+    route: 'https://auraq.bharatk.in',
     name: 'Travel',
     type: 'external',
   }, // Travel
