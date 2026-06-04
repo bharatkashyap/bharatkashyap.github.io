@@ -63,16 +63,26 @@ export const content = {
         en: 'For almost four years, I worked at MUI to build with and learn from some of the great open-source developers of the world. I also got to travel a fair bit because of the remote nature of the job of which I am still trying to write about <a href="https://auraq.bharatk.in/" target="_blank" class="link">here</a>.',
       },
       {
-        en: 'I was driven by the curiosity to experience life on the other end of the spectrum (in more ways than one) and thus have, as of writing, moved to Bangkok to work at Agoda. As of writing I can confirm that browsing through hotel and activity listings is an enjoyable perk at work.',
+        en: 'I was driven by the curiosity to experience life on the other end of the spectrum (in more ways than one) and thus have, as of writing, moved to Bangkok to work at Agoda. I can confirm that browsing through hotel, activity and flight listings while working is a nice escape from what many warned me would be the drudgery of corporate life.',
       },
     ],
   },
   work: {
     employment: [
       {
+        title: 'Agoda',
+        date: 'Sep 2025 - present',
+        designation: 'Senior Software Engineer',
+        description: {
+          en: 'A large travel booking company headquartered in Singapore and based in Bangkok. I was hired to be part of a new Personal Travel Assistant organisation within the company, building the storefront for a new AI-first funnel for travel bookings.',
+          hi: "सिंगापुर मुख्यालय और बैंकॉक स्थित एक प्रमुख ट्रैवल बुकिंग कंपनी। मुझे कंपनी की नई 'पर्सनल ट्रैवल असिस्टेंट' टीम में शामिल किया गया, जहाँ मैंने यात्रा बुकिंग के लिए AI-आधारित नए ग्राहक अनुभव (booking funnel) के फ्रंटएंड/स्टोरफ्रंट के विकास पर कार्य किया",
+        },
+        pow: [],
+      },
+      {
         title: 'MUI',
-        date: 'Nov 2021 - present',
-        designation: 'Full Stack Engineer II',
+        date: 'Nov 2021 - Aug 2025',
+        designation: 'Full Stack Engineer I → II',
         description: {
           en: 'A web tools company headquartered in France that builds and maintains open-source projects — such as “Material-UI” — that have 4M+ weekly downloads on npm, 90k+ stars on GitHub and 2.7k+ community contributors. I am part of the Toolpad (new initiatves) and docs infrastructure teams.',
           hi: 'मैं MUI (पहले Material-UI) के साथ कार्यरत हूँ, जो की विश्व की सबसे विख्यात सॉफ्टवेयर निर्माताओं में से एक है, और मेरा उद्देश्य है लोगों के लिए सॉफ्टवेयर बनाने की प्रक्रिया को तेज़ और आसान बनाना',
@@ -86,6 +96,7 @@ export const content = {
       {
         title: 'Samagra',
         date: 'May 2020 - Nov 2021',
+        designation: 'Forward Deployed Engineer',
         description: {
           en: 'A management consulting company company headquartered in India that works with governments of 5+ states on large scale projects funded by large philanthropies. I was part of an in-house technology team working primarily on open-source governance products',
           hi: 'भारत में स्ूली बच्चों और अध्यापकों के लिए बनाये गए डिजिटल, सार्वजनिक इंफ्रास्ट्रक्चर "दीक्षा" में नया फ़ीचर जोड़ा जिससे भिन्न जगहों पर स्थित लोग साथ मिल कर मूल्यांकन की रचना कर सकें',
