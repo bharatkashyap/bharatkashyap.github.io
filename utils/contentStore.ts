@@ -72,7 +72,7 @@ export const content = {
       {
         title: 'Agoda',
         date: 'Sep 2025 - present',
-        designation: 'Senior Software Engineer',
+        designation: 'Staff Software Engineer',
         description: {
           en: 'A large travel booking company headquartered in Singapore and based in Bangkok. I was hired to be part of a new Personal Travel Assistant organisation within the company, building the storefront for a new AI-first funnel for travel bookings.',
           hi: "सिंगापुर मुख्यालय और बैंकॉक स्थित एक प्रमुख ट्रैवल बुकिंग कंपनी। मुझे कंपनी की नई 'पर्सनल ट्रैवल असिस्टेंट' टीम में शामिल किया गया, जहाँ मैंने यात्रा बुकिंग के लिए AI-आधारित नए ग्राहक अनुभव (booking funnel) के फ्रंटएंड/स्टोरफ्रंट के विकास पर कार्य किया",
