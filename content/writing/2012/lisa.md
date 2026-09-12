@@ -37,7 +37,7 @@ comments:
     content: 'I saw that Calvin and Hobbes Collection on the shelf when I came for my interview , now i know where it came from,really awesome prize though.'
 ---
 
-This is probably a bit late, but I really wanted to do this and well, I am now. Apologies, for blogging months later, but I don't want to repeat what I've said [here](/blog/2012/access), so go ahead and read the first two lines of that if you haven't already.
+This is probably a bit late, but I really wanted to do this and well, I am now. Apologies, for blogging months later, but I don't want to repeat what I've said [in this blog](/writing/2012/access), so go ahead and read the first two lines of that if you haven't already.
 
 Another thing before I begin, this post will contain a number of instances of the phrase 'coming to the point', which is my tribute to a particular Physics teacher that has just left our school – one of the best Physics teachers that you might find out there.
 

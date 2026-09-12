@@ -4,7 +4,7 @@ description: 'A callback to the past'
 date: '2023-09-30'
 ---
 
-I started "blogging" in 2011 with [this post](/blog/2011/first).
+I started "blogging" in 2011 with [this post](/writing/2011/first).
 
 At the time, this website did not exist - I put it up on Wordpress and wrote about whatever I felt like.
 
